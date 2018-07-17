@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.jaeger.library.StatusBarUtil;
@@ -18,10 +19,10 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.ImageUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.PrefUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.ResourceUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.SnackBarUtil;
-import com.twtstudio.bbs.bdpqchen.bbs.forum.ForumFragment;
+import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.VersionUtil;
+import com.twtstudio.bbs.bdpqchen.bbs.forum2.ForumFragment2;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.IndividualFragment;
-import com.twtstudio.bbs.bdpqchen.bbs.individual2.Individual2Fragment;
-import com.twtstudio.bbs.bdpqchen.bbs.main.MainFragment;
+import com.twtstudio.bbs.bdpqchen.bbs.main.mainV3.MainFragmentV3;
 
 import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -64,11 +65,21 @@ public class HomeActivity extends BaseActivity implements InfoContract {
 //        HandlerUtil.postDelay(() -> mSlideBackLayout.lock(true));
 //        mPresenter = new HomePresenter(this);
 //        LogUtil.dd("current_token", PrefUtil.getAuthToken());
+        if (VersionUtil.eaLollipop()) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            getWindow().setNavigationBarColor(Color.TRANSPARENT);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
         if (savedInstanceState == null) {
-            mFragments[FIRST] = MainFragment.Companion.newInstance();
-            mFragments[SECOND] = ForumFragment.newInstance();
-            mFragments[FORTH] = Individual2Fragment.Companion.newInstance();
-//            mFragments[FORTH] = IndividualFragment.newInstance();
+            mFragments[FIRST] = MainFragmentV3.Companion.newInstance();
+            mFragments[SECOND] = ForumFragment2.Companion.newInstance();
+            mFragments[FORTH] = IndividualFragment.newInstance();
 //            mFragments[FORTH] = MessageFragment.newInstance();
             loadMultipleRootFragment(R.id.fl_main_container, FIRST,
                     mFragments[FIRST],
@@ -76,12 +87,12 @@ public class HomeActivity extends BaseActivity implements InfoContract {
 //                    mFragments[THIRD],
                     mFragments[FORTH]);
         } else {
-            mFragments[FIRST] = findFragment(com.twtstudio.bbs.bdpqchen.bbs.main.MainFragment.class);
-            mFragments[SECOND] = findFragment(ForumFragment.class);
+            mFragments[FIRST] = findFragment(MainFragmentV3.class);
+            mFragments[SECOND] = findFragment(ForumFragment2.class);
 //            mFragments[THIRD] = findFragment(MessageFragment.class);
-//            mFragments[FORTH] = findFragment(IndividualFragment.class);
-            mFragments[FORTH] = findFragment(Individual2Fragment.class);
+            mFragments[FORTH] = findFragment(IndividualFragment.class);
         }
+
         mNearBy = mBottomBar.getTabWithId(R.id.bottom_bar_tab_individual);
         mBottomBar.setOnTabSelectListener(i -> {
             if (PrefUtil.hadLogin()) {
@@ -93,8 +104,6 @@ public class HomeActivity extends BaseActivity implements InfoContract {
                     clearFullScreen();
                 } else if (i == R.id.bottom_bar_tab_individual) {
                     mShowingFragment = FORTH;
-//                    StatusBarUtil.setTransparent(this);
-//                    clearFullScreen();
                     StatusBarUtil.setTranslucentForImageView(this, 0, null);
 //                } else if (i == R.id.bottom_bar_tab_message){
 //                    mShowingFragment = THIRD;
@@ -121,8 +130,7 @@ public class HomeActivity extends BaseActivity implements InfoContract {
     }
 
     private void clearFullScreen() {
-        StatusBarUtil.setColor(this, ResourceUtil.getColor(this, R.color.colorPrimaryDark)
-                , 0);
+        StatusBarUtil.setColor(this, ResourceUtil.getColor(this, R.color.colorPrimaryDark), 0);
     }
 
     private void loadFragment() {
@@ -130,6 +138,7 @@ public class HomeActivity extends BaseActivity implements InfoContract {
         mHidingFragment = mShowingFragment;
     }
 
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (mIsExit) {
