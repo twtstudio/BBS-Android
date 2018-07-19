@@ -1,5 +1,6 @@
 package com.twtstudio.bbs.bdpqchen.bbs.individual2
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
@@ -15,7 +16,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_RESULT_UP
 import com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.REQUEST_CODE_UPDATE_INFO
 import com.twtstudio.bbs.bdpqchen.bbs.commons.tools.AuthTool
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.*
-import com.twtstudio.bbs.bdpqchen.bbs.individual.message.MessageActivity
 import com.twtstudio.bbs.bdpqchen.bbs.individual.model.IndividualInfoModel
 import com.twtstudio.bbs.bdpqchen.bbs.individual.release.ReleaseActivity
 import com.twtstudio.bbs.bdpqchen.bbs.individual.settings.SettingsActivity
@@ -30,7 +30,7 @@ import me.yokeyword.fragmentation.SupportFragment
  */
 class Individual2Fragment : BaseFragment(), Individual2Contract.View {
 
-    private lateinit var xPresenter: Individual2Presenter
+    private val xPresenter: Individual2Presenter? = Individual2Presenter(this)
     private val mInfo: ConstraintLayout by bindView(R.id.ind_info)
     private val mAvatar: CircleImageView by bindView(R.id.ind_avatar)
     private val mPastDays: TextView by bindView(R.id.ind_past_day_data)
@@ -50,15 +50,16 @@ class Individual2Fragment : BaseFragment(), Individual2Contract.View {
 
     override fun getFragmentLayoutId(): Int = R.layout.fragment_individual2
 
+    @SuppressLint("SetTextI18n")
     override fun gotInfo(info: IndividualInfoModel) {
         AuthTool.userInfo(info)
         ImageUtil.loadMyAvatar(mContext, mAvatar)
-        mPastDays.setText("" + info.c_online)
-        mPostCount.setText("" + info.c_thread)
-        mNickname.setText(info.nickname)
-        mSignature.setText(info.signature)
-        mPoints.setText("" + info.points)
-        mHonor.setText(TextUtil.getHonor(info.points))
+        mPastDays.text = ""+info.c_online
+        mPostCount.text = ""+info.c_thread
+        mNickname.text = info.nickname
+        mSignature.text = info.signature
+        mPoints.text = ""+info.points
+        mHonor.text = TextUtil.getHonor(info.points)
     }
 
     private fun getInfo() {
@@ -68,7 +69,7 @@ class Individual2Fragment : BaseFragment(), Individual2Contract.View {
     override fun getPresenter(): Individual2Presenter? = xPresenter
 
     override fun initFragment() {
-        xPresenter = Individual2Presenter(this)
+
         xPresenter!!.initIndividualInfo()
         mInfo.setOnClickListener { startItemActivity(ACT_IND) }
         mcollections.setOnClickListener { startItemActivity(ACT_STAR) }
