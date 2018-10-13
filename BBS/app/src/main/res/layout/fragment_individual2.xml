@@ -20,29 +20,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5.3dp"
                 android:text="我的"
                 android:textColor="#444444"
                 android:textSize="20sp"
-                android:layout_marginTop="5.3dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="20dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </android.support.constraint.ConstraintLayout>
 
-    </android.support.design.widget.AppBarLayout>>
+    </android.support.design.widget.AppBarLayout>
+    >
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ind_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ind_hearder"
+        android:layout_marginTop="8dp"
         android:background="@color/colorMainBgLight"
         android:foreground="@drawable/selector_foreground_settings"
-        android:layout_marginTop="8dp"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ind_hearder">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ind_avatar"
@@ -57,33 +58,35 @@
             android:id="@+id/ind_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#000000"
             android:layout_marginBottom="10.6dp"
-            app:layout_constraintLeft_toLeftOf="@+id/ind_honor"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/ind_honor"
+            app:layout_constraintLeft_toLeftOf="@+id/ind_honor"
             tools:text="哒哒哒" />
+
         <TextView
             android:id="@+id/ind_honor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textSize="12sp"
             android:textColor="#757575"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/ind_avatar"
             app:layout_constraintLeft_toRightOf="@id/ind_avatar"
             app:layout_constraintTop_toTopOf="@id/ind_avatar"
-            app:layout_constraintBottom_toBottomOf="@id/ind_avatar"
-            tools:text="中级站友"/>
+            tools:text="中级站友" />
+
         <TextView
             android:id="@+id/ind_signature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="#757575"
             android:layout_marginTop="10.6dp"
+            android:textColor="#757575"
+            android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="@+id/ind_honor"
             app:layout_constraintTop_toBottomOf="@+id/ind_honor"
-            tools:text="what I wanna to say is ..."/>
+            tools:text="what I wanna to say is ..." />
 
         <ImageView
             android:layout_width="24dp"
@@ -101,54 +104,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5.3dp"
-        app:layout_constraintTop_toBottomOf="@+id/ind_info"
         android:background="@color/colorMainBgLight"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ind_info">
 
         <TextView
             android:id="@+id/ind_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:text="积分"
             android:textColor="#757575"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/ind_post_count"
             app:layout_constraintEnd_toStartOf="@id/ind_post_count"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="积分" />
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <TextView
             android:id="@+id/ind_post_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#757575"
-            android:layout_marginEnd="80dp"
             android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:text="帖子"
+            android:textColor="#757575"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/ind_past_day"
-            app:layout_constraintStart_toEndOf="@+id/ind_points"
-            android:text="帖子" />
+            app:layout_constraintStart_toEndOf="@+id/ind_points" />
 
         <TextView
             android:id="@+id/ind_past_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:text="站龄"
             android:textColor="#757575"
-            app:layout_constraintStart_toEndOf="@+id/ind_post_count"
-            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/ind_post_count"
-            android:text="站龄" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ind_post_count" />
 
         <TextView
             android:id="@+id/ind_points_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
             android:textColor="#000000"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ind_post_count_data"
             app:layout_constraintLeft_toLeftOf="@+id/ind_points"
             app:layout_constraintRight_toRightOf="@+id/ind_points"
-            app:layout_constraintBottom_toBottomOf="@+id/ind_post_count_data"
             tools:text="807" />
 
         <TextView
@@ -156,8 +159,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5.3dp"
-            android:textSize="28sp"
             android:textColor="#000000"
+            android:textSize="28sp"
             app:layout_constraintBottom_toTopOf="@+id/ind_post_count"
             app:layout_constraintLeft_toLeftOf="@+id/ind_post_count"
             app:layout_constraintRight_toRightOf="@+id/ind_post_count"
@@ -168,11 +171,11 @@
             android:id="@+id/ind_past_day_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
             android:textColor="#000000"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ind_post_count_data"
             app:layout_constraintLeft_toLeftOf="@+id/ind_past_day"
             app:layout_constraintRight_toRightOf="@+id/ind_past_day"
-            app:layout_constraintBottom_toBottomOf="@+id/ind_post_count_data"
             tools:text="324" />
 
     </android.support.constraint.ConstraintLayout>
@@ -182,13 +185,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5.3dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/ind_count_data"
         android:background="@color/colorMainBgLight"
         android:clickable="true"
         android:focusable="true"
         android:foreground="@drawable/selector_foreground_settings"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ind_count_data">
 
         <ImageView
             android:id="@+id/ind_collection_icon"
@@ -204,24 +207,23 @@
             android:id="@+id/ind_collection_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:text="我的收藏"
             android:textColor="#444444"
             android:textSize="18sp"
-            android:layout_marginLeft="16dp"
             app:layout_constraintBottom_toBottomOf="@id/ind_collection_icon"
-            app:layout_constraintTop_toTopOf="@id/ind_collection_icon"
             app:layout_constraintLeft_toRightOf="@id/ind_collection_icon"
-            />
+            app:layout_constraintTop_toTopOf="@id/ind_collection_icon" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            app:layout_constraintBottom_toBottomOf="@id/ind_collection_icon"
-            app:layout_constraintTop_toTopOf="@id/ind_collection_icon"
             android:adjustViewBounds="false"
-            app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-            android:tint="@color/colorTintIconBlack" />
+            android:tint="@color/colorTintIconBlack"
+            app:layout_constraintBottom_toBottomOf="@id/ind_collection_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ind_collection_icon" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -230,13 +232,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/ind_collection"
         android:background="@color/colorMainBgLight"
         android:clickable="true"
         android:focusable="true"
         android:foreground="@drawable/selector_foreground_settings"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ind_collection">
 
         <ImageView
             android:id="@+id/ind_publish_icon"
@@ -253,24 +255,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
             android:text="我的帖子"
             android:textColor="#444444"
             android:textSize="18sp"
-            android:layout_marginLeft="16dp"
             app:layout_constraintBottom_toBottomOf="@id/ind_publish_icon"
-            app:layout_constraintTop_toTopOf="@id/ind_publish_icon"
             app:layout_constraintLeft_toRightOf="@id/ind_publish_icon"
-            />
+            app:layout_constraintTop_toTopOf="@id/ind_publish_icon" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            app:layout_constraintBottom_toBottomOf="@id/ind_publish_icon"
-            app:layout_constraintTop_toTopOf="@id/ind_publish_icon"
             android:adjustViewBounds="false"
-            app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-            android:tint="@color/colorTintIconBlack" />
+            android:tint="@color/colorTintIconBlack"
+            app:layout_constraintBottom_toBottomOf="@id/ind_publish_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ind_publish_icon" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -279,13 +280,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/ind_publish"
         android:background="@color/colorMainBgLight"
         android:clickable="true"
         android:focusable="true"
         android:foreground="@drawable/selector_foreground_settings"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ind_publish">
 
         <ImageView
             android:id="@+id/ind_setting_icon"
@@ -301,24 +302,23 @@
             android:id="@+id/ind_setting_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:text="通用设置"
             android:textColor="#444444"
             android:textSize="18sp"
-            android:layout_marginLeft="16dp"
             app:layout_constraintBottom_toBottomOf="@id/ind_setting_icon"
-            app:layout_constraintTop_toTopOf="@id/ind_setting_icon"
             app:layout_constraintLeft_toRightOf="@id/ind_setting_icon"
-            />
+            app:layout_constraintTop_toTopOf="@id/ind_setting_icon" />
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            app:layout_constraintBottom_toBottomOf="@id/ind_setting_icon"
-            app:layout_constraintTop_toTopOf="@id/ind_setting_icon"
-            app:layout_constraintRight_toRightOf="parent"
             android:adjustViewBounds="false"
             android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-            android:tint="@color/colorTintIconBlack" />
+            android:tint="@color/colorTintIconBlack"
+            app:layout_constraintBottom_toBottomOf="@id/ind_setting_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ind_setting_icon" />
 
     </android.support.constraint.ConstraintLayout>
 
