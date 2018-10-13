@@ -6,8 +6,6 @@
 /build
 /capturesgith
 .externalNativeBuild
-/keystore
-*.jks
 /release
 *.apk
 /debug
