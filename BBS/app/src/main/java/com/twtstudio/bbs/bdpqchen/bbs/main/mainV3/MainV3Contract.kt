@@ -2,7 +2,7 @@ package com.twtstudio.bbs.bdpqchen.bbs.main.mainV3
 
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BasePresenter
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BaseView
-import com.twtstudio.bbs.bdpqchen.bbs.main.latest.LatestEntity
+import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity
 
 interface MainV3Contract {
     interface Presenter : BasePresenter {

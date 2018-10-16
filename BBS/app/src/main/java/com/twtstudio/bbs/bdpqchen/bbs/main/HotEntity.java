@@ -1,29 +1,32 @@
-package com.twtstudio.bbs.bdpqchen.bbs.main.latest;
+package com.twtstudio.bbs.bdpqchen.bbs.main;
+
 
 /**
  * Created by bdpqchen on 17-9-17.
  */
 
-public class LatestEntity {
+public class HotEntity {
 
     /**
-     * id : 169683
-     * title : 青春无畏 创智未来丨北汽集团2018秋招
-     * author_id : 19544
-     * board_id : 189
+     * id : 169612
+     * title : 男朋友爱哭
+     * author_id : 21985
+     * board_id : 150
      * anonymous : 0
      * like : 0
-     * author_name : youzi
-     * author_nickname : youzi
-     * c_post : 0
+     * author_name : psyche
+     * author_nickname : psyche
+     * c_post : 88
      * b_top : 0
      * b_elite : 0
      * b_locked : 0
      * visibility : 0
-     * t_reply : 1505654656
-     * t_create : 1505654656
-     * t_modify : 1505654656
-     * board_name : 招聘信息
+     * t_reply : 1505650737
+     * t_create : 1505532679
+     * t_modify : 1505532679
+     * content : 男朋友情感特别细腻，老是因为我说的话多愁善感，还失眠，有时候还会哭。这可怎么办啊，，，表示想找个男朋友而不是需要哄着的小姐妹啊。，，
+     * board_name : 恋爱笔记
+     * recent : 88
      */
 
     private int id;
@@ -42,7 +45,9 @@ public class LatestEntity {
     private int t_reply;
     private int t_create;
     private int t_modify;
+    private String content;
     private String board_name;
+    private int recent;
 
     public int getId() {
         return id;
@@ -172,11 +177,27 @@ public class LatestEntity {
         this.t_modify = t_modify;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getBoard_name() {
         return board_name;
     }
 
     public void setBoard_name(String board_name) {
         this.board_name = board_name;
+    }
+
+    public int getRecent() {
+        return recent;
+    }
+
+    public void setRecent(int recent) {
+        this.recent = recent;
     }
 }

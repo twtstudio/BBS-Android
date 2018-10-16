@@ -13,7 +13,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.fragment.SimpleFragment
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.PrefUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.SnackBarUtil
-import com.twtstudio.bbs.bdpqchen.bbs.main.latest.LatestEntity
+import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity
 import kotterknife.bindView
 
 class MainFragmentV3 : SimpleFragment(), MainV3Contract.View {

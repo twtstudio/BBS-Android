@@ -31,15 +31,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="#f2f2f2"/>
 
     <android.support.v7.widget.RecyclerView
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/forum_rv" />
+
 
 </LinearLayout>

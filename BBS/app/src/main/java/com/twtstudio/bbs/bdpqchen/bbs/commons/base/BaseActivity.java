@@ -2,7 +2,6 @@ package com.twtstudio.bbs.bdpqchen.bbs.commons.base;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,9 +20,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.App;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.manager.ActivityManager;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.PrefUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.ResourceUtil;
-import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.VersionUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.home.HomeActivity;
-import com.twtstudio.bbs.bdpqchen.bbs.people.PeopleActivity;
 
 import org.piwik.sdk.Tracker;
 import org.piwik.sdk.extra.CustomVariables;
@@ -110,8 +107,7 @@ public abstract class BaseActivity extends SupportActivity {
     //由于滑动返回库的bug 目前只在5.0系统上出现此问题, 暂时修复方案
     private void    fixApi21blackBlockOnBottom() {
         String className = getClass().getSimpleName();
-        if (!(className.equals(PeopleActivity.class.getSimpleName())
-                || className.equals(HomeActivity.class.getSimpleName())
+        if (!(className.equals(HomeActivity.class.getSimpleName())
                 || className.equals(LoginActivity.class.getSimpleName()))) {
             if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);

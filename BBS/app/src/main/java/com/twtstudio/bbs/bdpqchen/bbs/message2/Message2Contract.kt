@@ -2,8 +2,6 @@ package com.twtstudio.bbs.bdpqchen.bbs.message2
 
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BasePresenter
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BaseView
-import com.twtstudio.bbs.bdpqchen.bbs.commons.model.BaseModel
-import com.twtstudio.bbs.bdpqchen.bbs.individual.message.model.MessageModel
 
 /**
  * Created by linjiaxin on 2018/7/18.

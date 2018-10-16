@@ -1,4 +1,4 @@
-package com.twtstudio.bbs.bdpqchen.bbs.people;
+package com.twtstudio.bbs.bdpqchen.bbs.person;
 
 import java.util.List;
 

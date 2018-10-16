@@ -4,7 +4,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.model.BaseModel
 import com.twtstudio.bbs.bdpqchen.bbs.commons.presenter.RxPresenter
 import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.ResponseTransformer
 import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.SimpleObserver
-import com.twtstudio.bbs.bdpqchen.bbs.individual.message.model.MessageModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

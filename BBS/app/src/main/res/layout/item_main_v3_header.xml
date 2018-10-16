@@ -13,13 +13,13 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="96dp">
+        android:layout_height="102dp">
 
         <ImageView
             android:id="@+id/main_notice_iv"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/notice"
             app:layout_constraintBottom_toTopOf="@id/main_notice_tv"
             app:layout_constraintEnd_toStartOf="@id/main_activity_iv"

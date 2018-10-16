@@ -1,8 +1,6 @@
 package com.twtstudio.bbs.bdpqchen.bbs.message2
 
 import android.content.Context
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.view.menu.ActionMenuItemView
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +11,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.R
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.*
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.GlideImageGeter
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.HtmlTextView
-import com.twtstudio.bbs.bdpqchen.bbs.individual.message.model.MessageModel
 import de.hdodenhof.circleimageview.CircleImageView
 import org.jetbrains.anko.layoutInflater
 

@@ -3,7 +3,7 @@ package com.twtstudio.bbs.bdpqchen.bbs.main.mainV3
 import com.twtstudio.bbs.bdpqchen.bbs.commons.presenter.RxPresenter
 import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.ResponseTransformer
 import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.SimpleObserver
-import com.twtstudio.bbs.bdpqchen.bbs.main.latest.LatestEntity
+import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

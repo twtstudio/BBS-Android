@@ -17,7 +17,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.PrefUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.TextUtil
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel
-import com.twtstudio.bbs.bdpqchen.bbs.people.PeopleModel
 import org.jetbrains.anko.layoutInflater
 
 class PersonHeaderItem(val people : PeopleModel, val context: Context, val uid : Int) : Item{

@@ -1,14 +1,11 @@
 package com.twtstudio.bbs.bdpqchen.bbs.main.mainV3
 
-import android.app.Activity
 import android.content.Context
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
@@ -20,11 +17,10 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.ImageUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IsUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.StampUtil
-import com.twtstudio.bbs.bdpqchen.bbs.main.latest.LatestEntity
+import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
-import org.jetbrains.anko.dip
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.annotations.NotNull
 
