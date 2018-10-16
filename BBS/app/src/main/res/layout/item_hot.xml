@@ -68,8 +68,8 @@
             <TextView
                 android:id="@+id/item_hot_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="没错！就是小猫猫！好可爱啊！（此处有表情23333）\nvfdgbgbebebebytrnerbtrgeynum"
+                android:layout_height="60dp"
+                android:text="没错！就是小猫猫！、n\nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn好可爱啊！（此处有表情23333）\nvfdgbgbebebebytrnerbtrgeynum"
                 app:layout_constraintTop_toBottomOf="@id/item_hot_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -138,6 +138,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#f2f2f2" />
+        android:background="#ffffff" />
 
 </LinearLayout>
