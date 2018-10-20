@@ -36,7 +36,7 @@ class HotItem(val context: Context, val hot: Hot) : Item {
                     item.context.startActivity(intent)
                 }
             }
-            holder.name.text = " " + hot.author_name
+            holder.name.text = " ${hot.author_name}"
             holder.boardType.text = TextUtil.getBoardName(hot.board_name)
             holder.boardType.setOnClickListener {
                 item.context.startActivity(IntentUtil.toThreadList(item.context, item.hot.board_id, item.hot.board_name, item.hot.anonymous))
@@ -54,7 +54,7 @@ class HotItem(val context: Context, val hot: Hot) : Item {
 
         override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
             val layoutInflater = parent.context.layoutInflater
-            val view = layoutInflater.inflate(R.layout.item_hot, parent, false)
+            val view = layoutInflater.inflate(R.layout.item_hot_2, parent, false)
             val card = view.findViewById<CardView>(R.id.item_hot_card)
             val avatar = view.findViewById<ImageView>(R.id.item_hot_avatar)
             val name = view.findViewById<TextView>(R.id.item_hot_name)

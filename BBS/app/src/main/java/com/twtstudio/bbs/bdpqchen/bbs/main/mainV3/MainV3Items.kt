@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.twtstudio.bbs.bdpqchen.bbs.R
@@ -21,37 +22,40 @@ import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
+import com.youth.banner.listener.OnBannerListener
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.annotations.NotNull
 
-class MainV3Threadheader(val activity: BaseActivity) : Item {
+class MainV3Threadheader(val context: Context,val imgids: List<Int>,val threadIds: List<Int>) : Item {
 
 
     companion object Controller : ItemController {
-        private val images = mutableListOf(R.drawable.bbs_banner0,R.drawable.bbs_banner0,R.drawable.bbs_banner0)
+        private val images = mutableListOf(R.drawable.bbs_banner0, R.drawable.bbs_banner0, R.drawable.bbs_banner0)
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
             holder as ViewHolder
             item as MainV3Threadheader
-            val banner = holder.banner
-            banner.setImageLoader(GlideImageLoader())
-            banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-            banner.setImages(images)
-            banner.setBannerAnimation(Transformer.DepthPage)
-            banner.setDelayTime(2000)
-            banner.setIndicatorGravity(BannerConfig.CENTER)
-            banner.start()
+            holder.banner.apply {
+                setImageLoader(GlideImageLoader())
+                setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+                setImages(item.imgids.map { "https://bbs.tju.edu.cn/api/img/$it" })
+                setBannerAnimation(Transformer.DepthPage)
+                setDelayTime(2000)
+                setIndicatorGravity(BannerConfig.CENTER)
+                setOnBannerListener { position -> item.context.startActivity(IntentUtil.toThread(item.context,item.threadIds[position])) }
+                start()
+            }
             holder.noticeIv.setOnClickListener {
-                item.activity.startActivity(IntentUtil.toAnnounce(item.activity))
+                item.context.startActivity(IntentUtil.toAnnounce(item.context))
             }
             holder.activityIv.setOnClickListener {
-//                item.activity.startActivity(IntentUtil.)
+                item.context.startActivity(IntentUtil.toEvent(item.context))
             }
             holder.hotIv.setOnClickListener {
-                item.activity.startActivity(IntentUtil.toHot(item.activity))
+                item.context.startActivity(IntentUtil.toHot(item.context))
             }
             holder.rankIv.setOnClickListener {
-                item.activity.startActivity(IntentUtil.toRank(item.activity))
+                item.context.startActivity(IntentUtil.toRank(item.context))
             }
         }
 
@@ -87,7 +91,7 @@ class MainV3ThreadItem(val latest: LatestEntity, val context: Context, val uid: 
                 item.latest.author_id = 0
                 item.latest.author_name = Constants.ANONYMOUS_NAME
                 holder.avatar.setOnClickListener(null)
-                ImageUtil.loadAnonAvatar(item.context,holder.avatar)
+                ImageUtil.loadAnonAvatar(item.context, holder.avatar)
             } else {
                 holder.avatar.setOnClickListener {
                     val intent = IntentUtil.toPeople(item.context, item.uid)

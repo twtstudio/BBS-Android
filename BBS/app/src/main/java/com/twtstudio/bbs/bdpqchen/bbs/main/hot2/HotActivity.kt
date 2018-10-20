@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.ImageView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
-import com.twt.wepeiyang.commons.experimental.extensions.enableLightStatusBarMode
 import com.twtstudio.bbs.bdpqchen.bbs.R
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BaseActivity
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.SnackBarUtil
@@ -19,7 +18,7 @@ import kotterknife.bindView
 
 class HotActivity : BaseActivity(), HotContract.View {
 
-    override fun getLayoutResourceId() = R.layout.activity_hot
+    override fun getLayoutResourceId() = R.layout.activity_hot_2
 
     override fun getToolbarView() = null
 

@@ -9,7 +9,7 @@
         android:id="@+id/main_v3_banner"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:visibility="gone" />
+        app:image_scale_type="fit_xy"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

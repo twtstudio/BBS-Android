@@ -20,8 +20,8 @@ class RankItem(val rank: Rank, val context: Context, val index: Int, val type: I
 
     companion object Controller : ItemController {
 
-        val RANK_WEEK = 0
-        val RANK_MONTH = 1
+        const val RANK_WEEK = 0
+        const val RANK_MONTH = 1
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
             holder as ViewHolder

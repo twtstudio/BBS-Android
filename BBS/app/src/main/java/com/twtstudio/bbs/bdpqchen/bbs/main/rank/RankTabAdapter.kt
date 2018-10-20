@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 
 class RankTabAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    val titles = mutableListOf("周榜", "月榜")
+    private val titles = mutableListOf("周榜", "月榜")
 
     override fun getItem(position: Int): Fragment {
         when (position) {

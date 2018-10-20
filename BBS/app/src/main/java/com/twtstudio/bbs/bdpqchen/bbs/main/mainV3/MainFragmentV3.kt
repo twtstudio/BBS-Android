@@ -26,6 +26,8 @@ class MainFragmentV3 : SimpleFragment(), MainV3Contract.View {
     private var mPage = 0
     private var isRefreshing = false
     private var latestVisibleItem = 0
+    val imgList = mutableListOf<Int>()
+    val threadList = mutableListOf<Int>()
     private lateinit var itemManager: ItemManager
     private lateinit var linearLayoutManager: LinearLayoutManager
 
@@ -59,17 +61,17 @@ class MainFragmentV3 : SimpleFragment(), MainV3Contract.View {
                 }
             }
         })
-        mPresenter.getLastest(0)
+        mPresenter.getBanner()
     }
 
     override fun onLatestSucess(latestList: List<LatestEntity>) {
 
         val temp = mutableListOf<Item>()
         if (mPage == 0) {
-            temp.add(MainV3Threadheader(mActivity as BaseActivity))
+            temp.add(MainV3Threadheader(mActivity, imgList, threadList))
         }
         if (PrefUtil.isFilterAdvertisement()) {
-            temp.addAll(latestList.filter { it.board_name != "招聘信息" && it.board_name != "找工作" }.map { t -> MainV3ThreadItem(t, mContext, t.author_id) })
+            temp.addAll(latestList.asSequence().filter { it.board_name != "招聘信息" && it.board_name != "找工作" }.map { t -> MainV3ThreadItem(t, mContext, t.author_id) }.toList())
         } else {
             temp.addAll(latestList.map { t -> MainV3ThreadItem(t, mContext, t.author_id) })
         }
@@ -85,6 +87,17 @@ class MainFragmentV3 : SimpleFragment(), MainV3Contract.View {
         SnackBarUtil.error(mActivity, msg)
     }
 
+    override fun onGetBanner(bannerBean: BannerBean) {
+        imgList.addAll(bannerBean.data.map(Data::image_id))
+        threadList.addAll(bannerBean.data.map(Data::thread_id))
+        mPresenter.getLastest(0)
+    }
+
+    override fun onGetBannerFailed(msg: String) {
+        SnackBarUtil.error(mActivity, msg)
+    }
+
+
     companion object {
         @JvmStatic
         fun newInstance(): MainFragmentV3 = MainFragmentV3()
@@ -93,12 +106,13 @@ class MainFragmentV3 : SimpleFragment(), MainV3Contract.View {
     private fun refresh() {
         mPage = 0
         isRefreshing = true
-        mPresenter.getLastest(mPage)
+        mPresenter.getBanner()
         swipeRefreshLayout.isRefreshing = false
     }
 
     private fun loadMore() {
         mPresenter.getLastest(++mPage)
     }
+
 
 }

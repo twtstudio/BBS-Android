@@ -15,8 +15,9 @@ import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.PostModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.UploadImageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread_list.ThreadListModel;
-import com.twtstudio.bbs.bdpqchen.bbs.individual.friend.FriendModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.letter.LetterModel;
+import com.twtstudio.bbs.bdpqchen.bbs.main.event.EventBean;
+import com.twtstudio.bbs.bdpqchen.bbs.main.mainV3.BannerBean;
 import com.twtstudio.bbs.bdpqchen.bbs.message2.MessageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.model.IndividualInfoModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.release.publish.PublishEntity;
@@ -30,6 +31,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity;
 import com.twtstudio.bbs.bdpqchen.bbs.person.PeopleModel;
 import com.twtstudio.bbs.bdpqchen.bbs.search.model.SearchThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.search.model.SearchUserModel;
+import com.youth.banner.Banner;
 
 import java.util.List;
 
@@ -279,10 +281,6 @@ public interface BaseApi {
             @Field(ID) int id,
             @Field(CONFIRM) int bool);
 
-    @GET("home/friend")
-    @Headers("Cache-Control: max-age=3600")
-    Observable<BaseResponse<List<FriendModel>>> getFriendList();
-
     @GET("user/{uid}/home")
     @Headers("Cache-Control: max-age=3600")
     Observable<BaseResponse<PeopleModel>> getUserInfo(
@@ -364,5 +362,12 @@ public interface BaseApi {
         @Path("tid") String tid,
         @Field(TITLE) String title,
         @Field(CONTENT) String content);
+
+    @GET("index/banner")
+    Observable<BannerBean> getBanner();
+
+    @GET("index/event")
+    Observable<EventBean> getEvent();
+
 }
 

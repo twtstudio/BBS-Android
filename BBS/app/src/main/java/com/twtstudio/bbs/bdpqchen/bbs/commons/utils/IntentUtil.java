@@ -12,6 +12,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread_list.ThreadListActivit
 import com.twtstudio.bbs.bdpqchen.bbs.individual.letter.LetterActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.updateInfo.UpdateInfoActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.main.announce.AnnounceActivity;
+import com.twtstudio.bbs.bdpqchen.bbs.main.event.EventActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.main.hot2.HotActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.main.rank.RankActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.mdeditor.EditorActivity;
@@ -180,6 +181,10 @@ public final class IntentUtil {
 
     public static Intent toAnnounce(Context context) {
         return new Intent(context, AnnounceActivity.class);
+    }
+
+    public static Intent toEvent(Context context) {
+        return new Intent(context, EventActivity.class);
     }
 
     public static Intent toHot(Context context) {
