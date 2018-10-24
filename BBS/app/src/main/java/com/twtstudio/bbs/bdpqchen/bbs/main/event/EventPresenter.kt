@@ -20,8 +20,7 @@ class EventPresenter(val view:EventContract.View) : RxPresenter(),EventContract.
             }
         }
 
-        addSubscribe(RxDoHttpClientTest
-                .getInstance()
+        addSubscribe(sHttpClient
                 .event
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

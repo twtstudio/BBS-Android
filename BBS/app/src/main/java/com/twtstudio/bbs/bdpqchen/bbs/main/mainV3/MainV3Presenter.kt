@@ -21,7 +21,7 @@ class MainV3Presenter(val view: MainV3Contract.View) : RxPresenter(), MainV3Cont
             }
 
         }
-        addSubscribe(RxDoHttpClientTest.getInstance()
+        addSubscribe(sHttpClient
                 .banner
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
