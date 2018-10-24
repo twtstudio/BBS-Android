@@ -1,6 +1,7 @@
 package com.twtstudio.bbs.bdpqchen.bbs.main.rank
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -37,6 +38,9 @@ class RankItem(val rank: Rank, val context: Context, val index: Int, val type: I
                 RANK_WEEK -> "周积分"
                 RANK_MONTH -> "月积分"
                 else -> ""
+            }
+            holder.itemView.setOnClickListener {
+                item.context.startActivity(IntentUtil.toPeople(item.context,item.rank.id))
             }
             setTextColorByIndex(item.index, holder.index, holder.name, holder.weekOrMonthPoint)
         }

@@ -25,6 +25,8 @@ import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.UploadImageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread_list.ThreadListModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.letter.LetterModel;
+import com.twtstudio.bbs.bdpqchen.bbs.main.event.EventBean;
+import com.twtstudio.bbs.bdpqchen.bbs.main.mainV3.BannerBean;
 import com.twtstudio.bbs.bdpqchen.bbs.message2.MessageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.model.IndividualInfoModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.release.publish.PublishEntity;
@@ -399,5 +401,13 @@ public class RxDoHttpClient {
 
     public Observable<EditModel> doEdit(String tid, String title,String cotent){
         return mApi.doEdit(tid,title,cotent);
+    }
+
+    public Observable<BannerBean> getBanner(){
+        return mApi.getBanner();
+    }
+
+    public Observable<EventBean> getEvent() {
+        return mApi.getEvent();
     }
 }

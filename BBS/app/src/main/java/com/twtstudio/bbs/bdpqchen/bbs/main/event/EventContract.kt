@@ -1,6 +1,5 @@
 package com.twtstudio.bbs.bdpqchen.bbs.main.event
 
-import com.twtstudio.bbs.bdpqchen.bbs.main.AcEntity
 
 interface EventContract {
 

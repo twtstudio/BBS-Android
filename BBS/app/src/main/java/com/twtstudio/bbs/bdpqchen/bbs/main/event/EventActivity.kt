@@ -13,7 +13,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.R
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BaseActivity
 import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BasePresenter
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.SnackBarUtil
-import com.twtstudio.bbs.bdpqchen.bbs.main.AcEntity
 import kotterknife.bindView
 
 class EventActivity : BaseActivity(), EventContract.View {

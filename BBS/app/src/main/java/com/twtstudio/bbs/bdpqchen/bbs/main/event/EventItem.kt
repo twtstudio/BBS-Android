@@ -10,7 +10,6 @@ import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.twtstudio.bbs.bdpqchen.bbs.R
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
-import com.twtstudio.bbs.bdpqchen.bbs.main.AcEntity
 import org.jetbrains.anko.layoutInflater
 
 class EventItem(val context: Context, val data:Data) : Item {

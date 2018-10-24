@@ -12,10 +12,7 @@ import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.twtstudio.bbs.bdpqchen.bbs.R
-import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.ImageUtil
-import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
-import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.PrefUtil
-import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.TextUtil
+import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.*
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel
 import org.jetbrains.anko.layoutInflater
 
@@ -33,25 +30,31 @@ class PersonHeaderItem(val people : PeopleModel, val context: Context, val uid :
                 val ac = item.context as Activity
                 ac.onBackPressed()
             }
-            holder.userLevelTv.text = TextUtil.getHonor(item.people.points)
-            holder.userNameTv.text = TextUtil.getTwoNames(item.people.name,item.people.nickname)
-            holder.userSignTv.text = TextUtil.getUserSignature(item.people.signature)
-            holder.userPointTv.text = ""+ item.people.points
-            holder.userThreadTV.text = "" + item.people.c_thread
-            holder.userAgeTv.text = "" + item.people.c_online
-            holder.messageaOrModify.apply {
-                if (PrefUtil.getAuthUid() == item.uid){
-                    this.setImageResource(R.drawable.modify)
-                    this.setOnClickListener{
-                        item.context.startActivity(IntentUtil.toUpDateInfo(item.context))
-                    }
-                } else {
-                    this.setImageResource(R.drawable.priviate_message)
-                    this.setOnClickListener {
-                        item.context.startActivity(IntentUtil.toLetter(item.context,item.uid,item.people.name))
+            holder.apply {
+                userLevelTv.text = TextUtil.getHonor(item.people.points)
+                userNameTv.text = TextUtil.getTwoNames(item.people.name,item.people.nickname)
+                userSignTv.text = TextUtil.getUserSignature(item.people.signature)
+                userPointTv.text = ""+ item.people.points
+                userThreadTV.text = "" + item.people.c_thread
+                userAgeTv.text = "" + item.people.c_online
+                messageaOrModify.apply {
+                    if (PrefUtil.getAuthUid() == item.uid){
+                        this.setImageResource(R.drawable.modify)
+                        this.setOnClickListener{
+                            item.context.startActivity(IntentUtil.toUpDateInfo(item.context))
+                        }
+                    } else {
+                        this.setImageResource(R.drawable.priviate_message)
+                        this.setOnClickListener {
+                            item.context.startActivity(IntentUtil.toLetter(item.context,item.uid,item.people.name))
+                        }
                     }
                 }
+                userAvatarIv.setOnClickListener {
+                    item.context.startActivity(IntentUtil.toBigPhoto(item.context, UrlUtil.getAvatarUrl(item.uid)))
+                }
             }
+
 
         }
 

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.R;
@@ -82,7 +83,7 @@ public class UpdatePasswordActivity extends BaseActivity implements UpdatePasswo
             return;
         }
         if (!newPass.equals(confirmPass)){
-            mEtAgain.setError("两次不一致");
+            SnackBarUtil.error(this,"两次密码不一致");
             return;
         }
         mCpbIdentify.start();
