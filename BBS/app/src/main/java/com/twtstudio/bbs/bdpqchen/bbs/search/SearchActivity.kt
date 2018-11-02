@@ -93,7 +93,7 @@ class SearchActivity : BaseActivity(), SearchContract.View, View.OnTouchListener
                 }
             }
         })
-        mTvSearch.setOnClickListener({
+        mTvSearch.setOnClickListener {
             val inputted = mEtSearch.text.toString()
             if (inputted.isNotEmpty()) {
                 mKeyword = inputted
@@ -101,7 +101,7 @@ class SearchActivity : BaseActivity(), SearchContract.View, View.OnTouchListener
                 mPage = 0
                 doSearch()
             }
-        })
+        }
         if (mMode == MODE_SEARCH_USER) {
             mEtSearch.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {
@@ -138,6 +138,7 @@ class SearchActivity : BaseActivity(), SearchContract.View, View.OnTouchListener
 
     private fun doSearch() {
         if (mKeyword.isNotEmpty()) {
+            mAdapter.setKeyWord(mKeyword)
             showLoading()
             searchUser()
             searchThread()
@@ -166,7 +167,7 @@ class SearchActivity : BaseActivity(), SearchContract.View, View.OnTouchListener
             val commonList = ArrayList<CommonModel>()
             var i = 0
             if (mMode == MODE_SEARCH_USER){
-                userList.mapTo(commonList, { CommonModel(ITEM_SEARCH_USER, i++) })
+                userList.mapTo(commonList) { CommonModel(ITEM_SEARCH_USER, i++) }
                 mAdapter.addUserList(userList)
                 mAdapter.addCommonList(commonList)
                 return
@@ -220,7 +221,7 @@ class SearchActivity : BaseActivity(), SearchContract.View, View.OnTouchListener
         if (mPage == 0){
             commonList.add(CommonModel(ITEM_SEARCH_THREAD_HEADER, -2))
         }
-        list.mapTo(commonList, { CommonModel(ITEM_SEARCH_THREAD, i++) })
+        list.mapTo(commonList) { CommonModel(ITEM_SEARCH_THREAD, i++) }
         mAdapter.addCommonList(commonList)
     }
 

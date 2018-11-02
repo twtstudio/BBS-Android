@@ -6,6 +6,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.ResponseTransformer
 import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.SimpleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import org.jetbrains.annotations.NotNull
 
 /**
  * Created by linjiaxin on 2018/7/18.
@@ -21,9 +22,9 @@ class Message2Presenter(view: Message2Contract.View?) : RxPresenter(), Message2C
                 }
             }
 
-            override fun _onNext(integer: Int?) {
+            override fun _onNext(@NotNull integer: Int) {
                 if (mView != null) {
-                    mView?.onGotMessageCount(integer!!)
+                    mView?.onGotMessageCount(integer)
                 }
             }
         }

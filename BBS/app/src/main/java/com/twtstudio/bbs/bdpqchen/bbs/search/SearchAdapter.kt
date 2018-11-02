@@ -2,7 +2,11 @@ package com.twtstudio.bbs.bdpqchen.bbs.search
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +25,7 @@ import de.hdodenhof.circleimageview.CircleImageView
  */
 class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUserItemClick) : RecyclerView.Adapter<BaseViewHolder>() {
 
+    private var keyWord = ""
     private var mUserDataSet = ArrayList<SearchUserModel>()
     private var mThreadDataSet = ArrayList<SearchThreadModel>()
     private var mCommonDataSet = ArrayList<CommonModel>()
@@ -32,25 +37,43 @@ class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUse
             when (holder) {
                 is UserViewHolder -> {
                     val entity = mUserDataSet[mCommonDataSet[position].position]
-                    holder.tvName.text = entity.name
+                    entity.name.noneSensitiveIndexOf(keyWord).also {
+                        if (it >= 0 && it+keyWord.length <= entity.name.length){
+                            val spannableString = SpannableString(entity.name)
+                            spannableString.setSpan(ForegroundColorSpan(Color.parseColor("#FF0099EE")), it, it + keyWord.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+                            holder.tvName.text = spannableString
+                        } else {
+                            holder.tvName.text = entity.name
+                        }
+                    }
+
                     ImageUtil.loadAvatar(mContext, entity.id, holder.civAvatar)
-                    holder.itemView.setOnClickListener({
+                    holder.itemView.setOnClickListener {
                         mUserClickListener.onClick(position)
-                    })
+                    }
                 }
                 is ThreadViewHolder -> {
                     val entity = mThreadDataSet[mCommonDataSet[position].position]
-                    with(holder, { with(entity, {
-                            tvTitle.text = title
+                    with(holder) {
+                        with(entity) {
+                            title.noneSensitiveIndexOf(keyWord).also {
+                                if (it >= 0 && it + keyWord.length <= title.length) {
+                                    val spannableString = SpannableString(title)
+                                    spannableString.setSpan(ForegroundColorSpan(Color.parseColor("#FF0099EE")), it, it + keyWord.length, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+                                    tvTitle.text = spannableString
+                                } else {
+                                    tvTitle.text = title
+                                }
+                            }
                             if (IsUtil.isAnon(anonymous)) {
                                 author_name = ANONYMOUS_NAME
                                 author_id = 0
                             }
                             tvAuthorAndTime.text = author_name + "  创建于 " + StampUtil.getDatetimeByStamp(t_create)
                             ImageUtil.loadAvatar(mContext, author_id, civAvatar)
-                            holder.itemView.setOnClickListener({ mContext.startActivity(IntentUtil.toThread(mContext, id, title)) })
-                        })
-                    })
+                            holder.itemView.setOnClickListener { mContext.startActivity(IntentUtil.toThread(mContext, id, title)) }
+                        }
+                    }
                 }
                 is HeaderViewHolder -> {
                     val entity = mCommonDataSet[position]
@@ -61,7 +84,7 @@ class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUse
                     holder.tvTitle.text = title
                 }
                 is HidingViewHolder -> {
-                    holder.itemView.setOnClickListener({ addMoreUser() })
+                    holder.itemView.setOnClickListener { addMoreUser() }
                 }
                 is DividerViewHolder -> {
                     LogUtil.dd("create divider view holder")
@@ -91,7 +114,7 @@ class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUse
     private fun addMoreUser() {
         var pos = MAX_SEARCH_RESULT_USER
         mCommonDataSet.removeAt(pos + 1)
-        mCommonDataSet.addAll(pos + 1, mUserHiding.map({ CommonModel(ITEM_SEARCH_USER, pos++) }))
+        mCommonDataSet.addAll(pos + 1, mUserHiding.map { CommonModel(ITEM_SEARCH_USER, pos++) })
         mUserDataSet.addAll(mUserHiding)
         notifyDataSetChanged()
     }
@@ -107,9 +130,9 @@ class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUse
     }
 
     fun addCommonList(list: List<CommonModel>, addFirst: Boolean = false) {
-        if (addFirst){
+        if (addFirst) {
             mCommonDataSet.addAll(0, list)
-        }else{
+        } else {
             mCommonDataSet.addAll(list)
         }
         notifyDataSetChanged()
@@ -119,11 +142,11 @@ class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUse
         mUserHiding.addAll(hidingList)
     }
 
-    fun getThreadNextPosition(): Int{
+    fun getThreadNextPosition(): Int {
         return mThreadDataSet.size
     }
 
-    fun getUser(position: Int): SearchUserModel{
+    fun getUser(position: Int): SearchUserModel {
         return mUserDataSet[position]
     }
 
@@ -159,14 +182,19 @@ class SearchAdapter(val mContext: Context, private val mUserClickListener: OnUse
     class HidingViewHolder(val view: View) : BaseViewHolder(view)
 
     fun clearDataSet() {
-//        removeAllDataSet()
-//        return
         mUserDataSet.clear()
         mUserHiding.clear()
         mThreadDataSet.clear()
         mCommonDataSet.clear()
         notifyDataSetChanged()
+    }
 
+    fun setKeyWord(keyWord: String) {
+        this.keyWord = keyWord
+    }
+
+    fun String.noneSensitiveIndexOf(str:String):Int{
+        return this.toUpperCase().indexOf(str.toUpperCase())
     }
 
 }
