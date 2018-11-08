@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull
  */
 class Message2Presenter(view: Message2Contract.View?) : RxPresenter(), Message2Contract.Presenter {
     private var mView: Message2Contract.View? = view
+
     override fun getUnreadMessageCount() {
 
         val observer = object : SimpleObserver<Int>() {
@@ -37,11 +38,17 @@ class Message2Presenter(view: Message2Contract.View?) : RxPresenter(), Message2C
     override fun getMessageList(page: Int) {
         val observer: SimpleObserver<List<MessageModel>> = object : SimpleObserver<List<MessageModel>>() {
             override fun _onError(msg: String) {
-                mView?.onGetMessageFailed(msg!!)
+                mView?.onGetMessageFailed(msg)
             }
 
             override fun _onNext(messageModels: List<MessageModel>) {
-                mView?.showMessageList(messageModels!!)
+                var tem = 0
+                messageModels.forEach{
+                    if (it.read == 0){
+                        tem++
+                    }
+                }
+                mView?.showMessageList(messageModels)
             }
         }
         addSubscribe(RxPresenter.sHttpClient.getMessageList(page)

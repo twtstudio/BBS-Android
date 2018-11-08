@@ -88,6 +88,8 @@ class MainFragmentV3 : SimpleFragment(), MainV3Contract.View {
     }
 
     override fun onGetBanner(bannerBean: BannerBean) {
+        imgList.clear()
+        threadList.clear()
         imgList.addAll(bannerBean.data.map(Data::image_id))
         threadList.addAll(bannerBean.data.map(Data::thread_id))
         mPresenter.getLastest(0)
