@@ -11,6 +11,5 @@ interface EventContract {
         fun onGetEventListFailed(msg:String)
 
         fun onGetEventListSuccess(data: EventBean)
-
     }
 }

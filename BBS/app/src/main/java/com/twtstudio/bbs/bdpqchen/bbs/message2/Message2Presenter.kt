@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull
  */
 class Message2Presenter(view: Message2Contract.View?) : RxPresenter(), Message2Contract.Presenter {
     private var mView: Message2Contract.View? = view
-
     override fun getUnreadMessageCount() {
 
         val observer = object : SimpleObserver<Int>() {
@@ -42,12 +41,6 @@ class Message2Presenter(view: Message2Contract.View?) : RxPresenter(), Message2C
             }
 
             override fun _onNext(messageModels: List<MessageModel>) {
-                var tem = 0
-                messageModels.forEach{
-                    if (it.read == 0){
-                        tem++
-                    }
-                }
                 mView?.showMessageList(messageModels)
             }
         }

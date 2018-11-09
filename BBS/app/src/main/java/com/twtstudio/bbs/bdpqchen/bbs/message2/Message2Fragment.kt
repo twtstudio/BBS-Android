@@ -27,7 +27,6 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     private val mRecyclerView: RecyclerView by bindView(R.id.rv_message_list)
     private val mTvNoMessage: TextView by bindView(R.id.tv_no_message)
     private val mSrlMessage: SwipeRefreshLayout by bindView(R.id.srl_message)
-    private val mUnreadCount: TextView by bindView(R.id.unread_count)
     private var mRefreshing = false
     private var lastVisibleItemPosition = 0
     private var mPage = 0
@@ -40,10 +39,11 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         mRecyclerView.adapter = ItemAdapter(itemManager)
         mRecyclerView.layoutManager = mLayoutManager
         mRecyclerView.addItemDecoration(RecyclerViewItemDecoration(2))
-        mPresenter.getUnreadMessageCount()
+//        mPresenter.getUnreadMessageCount()
         mPresenter.getMessageList(0)
         setRefreshing(true)
         mSrlMessage.setOnRefreshListener {
+            mPresenter.doClearUnreadMessage()
             mPresenter.getMessageList(0)
             mRefreshing = true
             mSrlMessage.isRefreshing = false

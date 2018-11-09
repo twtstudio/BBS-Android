@@ -18,7 +18,7 @@ import kotterknife.bindView
 class EventActivity : BaseActivity(), EventContract.View {
 
     val presenter = EventPresenter(this)
-    val arrowBack : ImageView by bindView(R.id.activity_event_ic_back)
+    private val arrowBack: ImageView by bindView(R.id.activity_event_ic_back)
     val recyclerView: RecyclerView by bindView(R.id.event_recycler_view)
     private val layoutManager = LinearLayoutManager(this)
 
@@ -26,14 +26,18 @@ class EventActivity : BaseActivity(), EventContract.View {
 
     override fun getToolbarView() = null
 
-    override fun getPresenter() : BasePresenter = presenter
+    override fun getPresenter(): BasePresenter = presenter
 
     override fun onGetEventListFailed(msg: String) {
-        SnackBarUtil.error(this,msg)
+        SnackBarUtil.error(this, msg)
     }
 
     override fun onGetEventListSuccess(data: EventBean) {
-        recyclerView.withItems(data.data.map { EventItem(this@EventActivity,it) })
+        if (data.data.isEmpty()) {
+            SnackBarUtil.normal(this,"暂时没有活动哦~")
+        } else {
+            recyclerView.withItems(data.data.map { EventItem(this@EventActivity, it) })
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
