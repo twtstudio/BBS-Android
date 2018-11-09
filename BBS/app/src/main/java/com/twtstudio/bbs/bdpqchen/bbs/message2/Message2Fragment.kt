@@ -27,6 +27,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     private val mRecyclerView: RecyclerView by bindView(R.id.rv_message_list)
     private val mTvNoMessage: TextView by bindView(R.id.tv_no_message)
     private val mSrlMessage: SwipeRefreshLayout by bindView(R.id.srl_message)
+    private val mUnreadCount: TextView by bindView(R.id.unread_count)
     private var mRefreshing = false
     private var lastVisibleItemPosition = 0
     private var mPage = 0
@@ -43,7 +44,6 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         mPresenter.getMessageList(0)
         setRefreshing(true)
         mSrlMessage.setOnRefreshListener {
-            mPresenter.doClearUnreadMessage()
             mPresenter.getMessageList(0)
             mRefreshing = true
             mSrlMessage.isRefreshing = false
@@ -73,15 +73,12 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     override fun showMessageList(messageList: List<MessageModel>) {
         val temp = mutableListOf<Item>()
         if (mRefreshing) {
+            itemManager.refreshAll(temp)
             mRefreshing = false
         }
         if (messageList.isNotEmpty()) {
             temp.addAll(messageList.map { t -> MessageItems(this.mContext, t) })
-            itemManager.clear()
             itemManager.addAll(temp)
-            var i = 0
-            messageList.forEach { if (it.read == 0) i++ else {}}
-            getCallback().showUnreadMsg(i)
         } else {
             pageDecrease()
             showNoMessage()
@@ -94,14 +91,15 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         if (!autoClear) {
             autoClear = false
             SnackBarUtil.normal(this.mActivity, "已清空未读消息")
-            getCallback().showUnreadMsg(0)
+            mPresenter.getMessageList(0)
+
         }
     }
 
     override fun onClearFailed(msg: String) {
         if (!autoClear) {
             autoClear = false
-            SnackBarUtil.error(this.mActivity, "失败$msg")
+            SnackBarUtil.error(this.mActivity, "失败" + msg)
         }
         stopRefresh()
     }
@@ -125,7 +123,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         setRefreshing(false)
     }
 
-    private fun setRefreshing(b: Boolean) {
+    fun setRefreshing(b: Boolean) {
         mSrlMessage.isRefreshing = b
         mRefreshing = b
     }
