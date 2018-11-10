@@ -1,6 +1,5 @@
 package com.twtstudio.bbs.bdpqchen.bbs.main.event
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -24,7 +23,7 @@ class EventItem(val context: Context, val data:Data) : Item {
             holder.itemView.setOnClickListener {
                 item.context.startActivity(IntentUtil.toThread(item.context,item.data.id))
             }
-            holder.title.text = "【活动】 ${item.data.title}"
+            holder.title.text = item.data.title
         }
 
         override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
