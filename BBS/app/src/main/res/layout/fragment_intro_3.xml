@@ -24,7 +24,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:text="我是老用户"
+            android:text="老用户注册"
             android:textSize="12sp"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/shape_intro_bg"
@@ -36,7 +36,7 @@
             android:layout_marginStart="24dp"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:text="我是新用户"
+            android:text="新用户注册"
             android:textSize="12sp"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/shape_intro_bg"

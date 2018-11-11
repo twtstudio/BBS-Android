@@ -1,5 +1,6 @@
 package com.twtstudio.bbs.bdpqchen.bbs.home;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,9 +31,6 @@ import me.yokeyword.fragmentation.SupportFragment;
 public class HomeActivity extends BaseActivity implements InfoContract {
 
 
-//    @BindView(R.id.home_bottom_bar)
-//    BottomBar mBottomBar;
-//    BottomBarTab mNearBy;
     @BindView(R.id.unread_count)
     TextView mUnread;
     @BindView(R.id.home_bottom_bar_main)
@@ -74,20 +72,14 @@ public class HomeActivity extends BaseActivity implements InfoContract {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        HandlerUtil.postDelay(() -> mSlideBackLayout.lock(true));
-//        mPresenter = new HomePresenter(this);
-//        LogUtil.dd("current_token", PrefUtil.getAuthToken());
 
         setTabStatus(mShowingFragment);
         mUnread.setVisibility(View.GONE);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
         if (savedInstanceState == null) {
             mFragments[FIRST] = MainFragmentV3.Companion.newInstance();
             mFragments[SECOND] = ForumFragment2.Companion.newInstance();
             mFragments[THIRD] = Message2Fragment.Companion.newInstance();
             mFragments[FORTH] = Individual2Fragment.Companion.newInstance();
-//          mFragments[FORTH] = MessageFragment.newInstance();
             loadMultipleRootFragment(R.id.fl_main_container, FIRST,
                     mFragments[FIRST],
                     mFragments[SECOND],
@@ -97,12 +89,9 @@ public class HomeActivity extends BaseActivity implements InfoContract {
             mFragments[FIRST] = findFragment(MainFragmentV3.class);
             mFragments[SECOND] = findFragment(ForumFragment2.class);
             mFragments[THIRD] = findFragment(Message2Fragment.class);
-//            mFragments[FORTH] = findFragment(IndividualFragment.class);
             mFragments[FORTH] = findFragment(Individual2Fragment.class);
         }
-        createThread.setOnClickListener(v -> {
-            startActivity(IntentUtil.toCreateThread(this));
-        });
+        createThread.setOnClickListener(v -> startActivity(IntentUtil.toCreateThread(this)));
         tabHome.setOnClickListener( v -> {
             boolean flag = mShowingFragment == FIRST;
             setTabStatus(FIRST);
@@ -135,28 +124,6 @@ public class HomeActivity extends BaseActivity implements InfoContract {
 
         // 放在Looper里面操作 渲染好了再操作
         tabHome.post(this::clearFullScreen);
-//        mNearBy = mBottomBar.getTabWithId(R.id.bottom_bar_tab_individual);
-//        mBottomBar.setOnTabSelectListener(i -> {
-//            if (PrefUtil.hadLogin()) {
-//                if (i == R.id.bottom_bar_tab_main) {
-//                    mShowingFragment = FIRST;
-//                    clearFullScreen();
-//                } else if (i == R.id.bottom_bar_tab_forum) {
-//                    mShowingFragment = SECOND;
-//                    clearFullScreen();
-//                } else if (i == R.id.bottom_bar_tab_individual) {
-//                      mShowingFragment = FORTH;
-////                    StatusBarUtil.setTransparent(this);
-////                    clearFullScreen();
-//                    StatusBarUtil.setTranslucentForImageView(this, 0, null);
-////                } else if (i == R.id.bottom_bar_tab_message){
-////                    mShowingFragment = THIRD;
-//                }
-//                loadFragment();
-//            } else if (i == R.id.bottom_bar_tab_individual && !PrefUtil.hadLogin()) {
-//                startActivity(new Intent(this, LoginActivity.class));
-//            }
-//        });
 
         if (PrefUtil.getLastImageStamp() == 0) {
             PrefUtil.setLastImageStamp(System.currentTimeMillis());
@@ -174,8 +141,6 @@ public class HomeActivity extends BaseActivity implements InfoContract {
     }
 
     private void clearFullScreen() {
-//        StatusBarUtil.setColor(this, ResourceUtil.getColor(this, R.color.colorPrimaryDark)
-//                , 0);
         if (VersionUtil.eaLollipop()) {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -210,15 +175,15 @@ public class HomeActivity extends BaseActivity implements InfoContract {
         return super.onKeyDown(keyCode, event);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void showUnreadMsg(int count) {
-        if (count>0) {
+        if (count > 0) {
             mUnread.setVisibility(View.VISIBLE);
             mUnread.setText(count + "");
         }else{
             mUnread.setVisibility(View.GONE);
         }
-//        mNearBy.setBadgeCount(count);
     }
 
     private void setTabStatus(int position){

@@ -239,9 +239,7 @@ public class ThreadActivity extends BaseActivity implements ThreadContract.View,
             }
         });
 
-        mToolbarTitleThread.setOnClickListener(v -> {
-            toTop();
-        });
+        mToolbarTitleThread.setOnClickListener(v -> toTop());
         mEtComment.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -19,9 +19,11 @@ import org.jetbrains.anko.layoutInflater
  */
 class MessageItems(val context: Context, val message: MessageModel) : Item {
     companion object Controller : ItemController {
+
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
             holder as ViewHolder
             item as MessageItems
+            (holder.itemView as ViewGroup).requestDisallowInterceptTouchEvent(false)
             val message = item.message
             ImageUtil.loadAvatarButDefault(item.context, message.author_id, holder.mAvatar)
             holder.mRedDot.visibility = if (message.read == 0) View.VISIBLE else View.GONE
@@ -29,11 +31,11 @@ class MessageItems(val context: Context, val message: MessageModel) : Item {
             holder.mDatetime.text = StampUtil.getMessageDatetimeByStamp(message.t_create)
             holder.mAvatar.setOnClickListener { item.context.startActivity(IntentUtil.toPeople(item.context, message.author_id), TransUtil.getAvatarTransOptions(item.context, holder.mAvatar)) }
             if (message.tag == 1) {
-                var content = if (message.content.length>15) message.content.substring(0,15)+"..." else message.content
+                var content = if (message.content.length > 15) message.content.substring(0, 15) + "..." else message.content
                 holder.mSummary.text = content
                 holder.itemView.setOnClickListener {
                     holder.mRedDot.visibility = View.GONE
-                    item.context.startActivity(IntentUtil.toLetter(item.context,message.author_id,message.author_name))
+                    item.context.startActivity(IntentUtil.toLetter(item.context, message.author_id, message.author_name))
                 }
             } else {
                 val model = message.content_model
@@ -42,7 +44,7 @@ class MessageItems(val context: Context, val message: MessageModel) : Item {
                 content = if (action == "提到了你")
                     " 在 " + model.thread_title + " 中" + action
                 else
-                    "<p>" + action + ":" + content.substring(if (content.length > 3) 3 else content.length )
+                    "<p>" + action + ":" + content.substring(if (content.length > 3) 3 else content.length)
                 holder.mSummary.setHtml(content, GlideImageGeter(item.context, holder.mSummary))
                 holder.itemView.setOnClickListener {
                     holder.mRedDot.visibility = View.GONE

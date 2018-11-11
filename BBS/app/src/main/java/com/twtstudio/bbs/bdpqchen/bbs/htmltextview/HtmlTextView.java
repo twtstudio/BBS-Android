@@ -24,6 +24,7 @@ import android.text.Html;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.quote.QuoteReplaceUtil;
 
@@ -173,17 +174,16 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
     }
 
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        linkHit = false;
+        boolean res = super.onTouchEvent(event);
 
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        linkHit = false;
-//        boolean res = super.onTouchEvent(event);
-//
-//        if (dontConsumeNonUrlClicks) {
-//            return linkHit;
-//        }
-//        return res;
-//    }
+        if (dontConsumeNonUrlClicks) {
+            return linkHit;
+        }
+        return res;
+    }
 
 
 }

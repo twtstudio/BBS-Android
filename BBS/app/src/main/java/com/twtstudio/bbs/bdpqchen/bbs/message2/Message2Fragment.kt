@@ -24,6 +24,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
 
     private lateinit var mPresenter: Message2Presenter
     private lateinit var itemManager: ItemManager
+    private var unReadCount = 0
     private val mRecyclerView: RecyclerView by bindView(R.id.rv_message_list)
     private val mTvNoMessage: TextView by bindView(R.id.tv_no_message)
     private val mSrlMessage: SwipeRefreshLayout by bindView(R.id.srl_message)
@@ -39,10 +40,10 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         mRecyclerView.adapter = ItemAdapter(itemManager)
         mRecyclerView.layoutManager = mLayoutManager
         mRecyclerView.addItemDecoration(RecyclerViewItemDecoration(2))
-//        mPresenter.getUnreadMessageCount()
         mPresenter.getMessageList(0)
         setRefreshing(true)
         mSrlMessage.setOnRefreshListener {
+            autoClear = false
             mPresenter.doClearUnreadMessage()
             mPresenter.getMessageList(0)
             mRefreshing = true
@@ -83,6 +84,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
             pageDecrease()
             showNoMessage()
         }
+        mPresenter.getUnreadMessageCount()
         stopRefresh()
     }
 
@@ -90,22 +92,20 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         mRefreshing = false
         if (!autoClear) {
             autoClear = false
-            SnackBarUtil.normal(this.mActivity, "已清空未读消息")
-            mPresenter.getMessageList(0)
-
+            SnackBarUtil.normal(this.mActivity, "已刷新并清空未读消息")
         }
     }
 
     override fun onClearFailed(msg: String) {
         if (!autoClear) {
             autoClear = false
-            SnackBarUtil.error(this.mActivity, "失败" + msg)
+            SnackBarUtil.error(this.mActivity, "失败$msg")
         }
         stopRefresh()
     }
 
-    override fun onGotMessageCount(unread: Int) {
-        getCallback().showUnreadMsg(unread)
+    override fun onGotMessageCount(integer: Int) {
+        getCallback().showUnreadMsg(integer)
     }
 
     private fun getCallback(): InfoContract {
@@ -123,7 +123,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         setRefreshing(false)
     }
 
-    fun setRefreshing(b: Boolean) {
+    private fun setRefreshing(b: Boolean) {
         mSrlMessage.isRefreshing = b
         mRefreshing = b
     }
