@@ -23,6 +23,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.viewholder.TheEndViewHolder;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.GlideImageGeter;
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.HtmlTextView;
+import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.PostHtmlTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -278,7 +279,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @BindView(R.id.tv_floor_post)
         TextView mTvFloorPost;
         @BindView(R.id.htv_post_content)
-        HtmlTextView mHtvPostContent;
+        PostHtmlTextView mHtvPostContent;
         @BindView(R.id.iv_post_reply)
         ImageView mIvReply;
         @BindView(R.id.custom_thumb_post)
