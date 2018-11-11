@@ -36,7 +36,7 @@ class PersonHeaderItem(val people : PeopleModel, val context: Context, val uid :
                 userSignTv.text = TextUtil.getUserSignature(item.people.signature)
                 userPointTv.text = ""+ item.people.points
                 userThreadTV.text = "" + item.people.c_thread
-                userAgeTv.text = "" + item.people.c_online
+                userAgeTv.text = TextUtil.getPastDays(item.context, item.people.t_create)
                 messageaOrModify.apply {
                     if (PrefUtil.getAuthUid() == item.uid){
                         this.setImageResource(R.drawable.modify)
