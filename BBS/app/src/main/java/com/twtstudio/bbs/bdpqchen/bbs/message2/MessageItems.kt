@@ -31,7 +31,7 @@ class MessageItems(val context: Context, val message: MessageModel) : Item {
             holder.mDatetime.text = StampUtil.getMessageDatetimeByStamp(message.t_create)
             holder.mAvatar.setOnClickListener { item.context.startActivity(IntentUtil.toPeople(item.context, message.author_id), TransUtil.getAvatarTransOptions(item.context, holder.mAvatar)) }
             if (message.tag == 1) {
-                var content = if (message.content.length > 15) message.content.substring(0, 15) + "..." else message.content
+                val content = if (message.content.length > 15) message.content.substring(0, 15) + "..." else message.content
                 holder.mSummary.text = content
                 holder.itemView.setOnClickListener {
                     holder.mRedDot.visibility = View.GONE
