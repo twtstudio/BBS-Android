@@ -51,7 +51,7 @@ class Individual2Fragment : SimpleFragment(), Individual2Contract.View {
     override fun gotInfo(model: IndividualInfoModel) {
         AuthTool.userInfo(model)
         ImageUtil.loadMyAvatar(mContext, mAvatar)
-        mPastDays.text = "" + model.c_online
+        mPastDays.text = TextUtil.getPastDays(mContext, model.t_create)
         mPostCount.text = "" + model.c_thread
         mNickname.text = model.nickname
         mSignature.text = model.signature
