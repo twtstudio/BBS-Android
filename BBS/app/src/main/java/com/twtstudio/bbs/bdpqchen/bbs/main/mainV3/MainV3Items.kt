@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemController
 import com.twtstudio.bbs.bdpqchen.bbs.R
 import com.twtstudio.bbs.bdpqchen.bbs.commons.banner.GlideImageLoader
-import com.twtstudio.bbs.bdpqchen.bbs.commons.base.BaseActivity
 import com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.ImageUtil
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
@@ -22,7 +20,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
-import com.youth.banner.listener.OnBannerListener
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.annotations.NotNull
 
@@ -30,7 +27,6 @@ class MainV3Threadheader(val context: Context,val imgids: List<Int>,val threadId
 
 
     companion object Controller : ItemController {
-        private val images = mutableListOf(R.drawable.bbs_banner0, R.drawable.bbs_banner0, R.drawable.bbs_banner0)
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: Item) {
             holder as ViewHolder

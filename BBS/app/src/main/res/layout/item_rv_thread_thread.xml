@@ -47,7 +47,7 @@
         tools:text="挑剔大家发多少"
         />
 
-    <com.twtstudio.bbs.bdpqchen.bbs.htmltextview.HtmlTextView
+    <com.twtstudio.bbs.bdpqchen.bbs.htmltextview.PostHtmlTextView
         android:id="@+id/htv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

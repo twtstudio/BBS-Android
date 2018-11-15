@@ -22,7 +22,6 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.view.ThumbView;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.viewholder.TheEndViewHolder;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.GlideImageGeter;
-import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.HtmlTextView;
 import com.twtstudio.bbs.bdpqchen.bbs.htmltextview.PostHtmlTextView;
 
 import java.util.ArrayList;
@@ -301,13 +300,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @BindView(R.id.tv_title)
         TextView mTvTitle;
         @BindView(R.id.htv_content)
-        HtmlTextView mHtvContent;
-//        @BindView(R.id.tv_thread_like)
-//        TextView mTvLike;
-//        @BindView(R.id.iv_thread_like)
-//        ImageView mIvLike;
-//        @BindView(R.id.iv_thread_comment)
-//        ImageView mIvComment;
+        PostHtmlTextView mHtvContent;
 
         HeaderHolder(View itemView) {
             super(itemView);
