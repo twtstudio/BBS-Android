@@ -47,7 +47,6 @@
         <activity android:name=".individual.settings.SettingsActivity" />
         <activity android:name=".individual.updateInfo.UpdateInfoActivity" />
         <activity android:name=".individual.updatePassword.UpdatePasswordActivity" />
-        <activity android:name=".forum.boards.BoardsActivity" />
         <activity android:name=".forum.boards.thread.ThreadActivity" />
         <activity
             android:name=".forum.boards.thread_list.ThreadListActivity"
@@ -94,7 +93,8 @@
         <activity android:name=".main.rank.RankActivity" />
         <activity android:name=".main.hot2.HotActivity" />
         <activity android:name=".forum.boards.edit_thread.EditThreadActivity" />
-        <activity android:name=".main.event.EventActivity"></activity>
+        <activity android:name=".main.event.EventActivity" />
+        <activity android:name=".forum.boards.create_thread.CreateThread2Activity"></activity>
     </application>
 
 </manifest>

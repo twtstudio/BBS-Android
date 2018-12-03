@@ -117,6 +117,10 @@ public class ThreadListActivity extends BaseActivity implements ThreadListContra
         });
     }
 
+    public void initPicker() {
+
+    }
+
     @Override
     public void setThreadList(ThreadListModel threadListModel) {
         mSrlThreadList.setRefreshing(false);

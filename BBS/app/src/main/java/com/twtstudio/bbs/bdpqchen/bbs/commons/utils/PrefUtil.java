@@ -1,6 +1,10 @@
 package com.twtstudio.bbs.bdpqchen.bbs.commons.utils;
 
 import com.orhanobut.hawk.Hawk;
+import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.BoardsModel;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by bdpqchen on 17-4-18.
@@ -42,6 +46,15 @@ public final class PrefUtil {
     private static final String DISABLED_IMAGE_CACHE = "is_disabled_image_cache";
     private static final String IS_UPDATE_AVAILABLE = "is_update_available";
     private static final String IS_FILTER_ADVERTISEMENT = "is_filter_advertisement";
+    private static final String BOARD_FORUM_MAP = "board_forum_map";
+
+    public static void setBoardForumMap(Map<String, List<BoardsModel.BoardsBean>> map) {
+        Hawk.put(BOARD_FORUM_MAP, map);
+    }
+
+    public static Map<String, List<BoardsModel.BoardsBean>> getBoardForumMap() {
+        return Hawk.get(BOARD_FORUM_MAP, null);
+    }
 
     public static void setInfoGroup(int infoGroup) {
         Hawk.put(INFO_GROUP, infoGroup);

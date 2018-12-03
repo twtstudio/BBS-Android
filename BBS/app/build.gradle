@@ -135,6 +135,7 @@ android {
         implementation "org.jetbrains.anko:anko-design:0.9.1"
         implementation "org.jetbrains.anko:anko-recyclerview-v7:0.9.1"
         implementation 'com.youth.banner:banner:1.4.10'
+        implementation 'com.ycuwq.widgets:datepicker:1.2.2'
     }
 
 
@@ -150,3 +151,7 @@ android {
     }
 }
 apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}

@@ -113,11 +113,10 @@ public class CreateThreadActivity extends BaseActivity implements CreateThreadCo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
         mContext = this;
         mPresenter = new CreateThreadPresenter(this);
-//        mSlideBackLayout.lock(true);
         Intent intent = getIntent();
         mForumId = intent.getIntExtra(INTENT_FORUM_ID, 0);
         mCanAnon = intent.getIntExtra(INTENT_BOARD_CAN_ANON, 0);
@@ -217,7 +216,6 @@ public class CreateThreadActivity extends BaseActivity implements CreateThreadCo
     public void onGetBoardListFailed(String m) {
         getBoardList();
         SnackBarUtil.normal(this, m);
-
     }
 
     @Override

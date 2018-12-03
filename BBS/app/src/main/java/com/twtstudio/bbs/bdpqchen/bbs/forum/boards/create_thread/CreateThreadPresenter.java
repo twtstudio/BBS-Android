@@ -87,6 +87,13 @@ class CreateThreadPresenter extends RxPresenter implements CreateThreadContract.
                     mView.onGetBoardList(o);
                 }
             }
+
+            @Override
+            public void onComplete() {
+                if (mView != null) {
+                    mView.setUpPicker();
+                }
+            }
         };
         addSubscribe(sHttpClient.getBoardList(forumId)
                 .map(new ResponseTransformer<>())

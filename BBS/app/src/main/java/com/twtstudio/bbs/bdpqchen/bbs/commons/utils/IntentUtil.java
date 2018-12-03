@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.twtstudio.bbs.bdpqchen.bbs.auth.login.LoginActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.auth.retrieve.RetrieveActivity;
-import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.create_thread.CreateThreadActivity;
+import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.create_thread.CreateThread2Activity;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.edit_thread.EditThreadActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.ThreadActivity;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread_list.ThreadListActivity;
@@ -28,11 +28,8 @@ import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_BO
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_EDITOR_CONTENT;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_EDITOR_TITLE;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_EDITOR_TOOLBAR_TITLE;
-import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_FORUM_ID;
-import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_FORUM_TITLE;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_IS_SPECIFY_BOARD;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_SEARCH_MODE;
-import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_THREAD_CONTENT;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_THREAD_ID;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.INTENT_THREAD_TITLE;
 import static com.twtstudio.bbs.bdpqchen.bbs.commons.support.Constants.TID;
@@ -120,12 +117,6 @@ public final class IntentUtil {
         return intent;
     }
 
-    public static Intent toCreateThread(Context context, int fid, String fTitle) {
-        Intent intent = toCreateThread(context);
-        intent.putExtra(INTENT_FORUM_ID, fid);
-        intent.putExtra(INTENT_FORUM_TITLE, fTitle);
-        return intent;
-    }
 
     public static Intent toCreateThread(Context context, int bid, String bTitle, int canAnon) {
         Intent intent1 = toCreateThread(context);
@@ -136,18 +127,8 @@ public final class IntentUtil {
         return intent1;
     }
 
-    public static Intent toCreateThread(Context context, int fid, String fTitle, int bid, String bTitle, int canAnon) {
-        Intent intent = toCreateThread(context);
-        intent.putExtra(INTENT_FORUM_ID, fid);
-        intent.putExtra(INTENT_FORUM_TITLE, fTitle);
-        intent.putExtra(INTENT_BOARD_ID, bid);
-        intent.putExtra(INTENT_BOARD_TITLE, bTitle);
-        intent.putExtra(INTENT_BOARD_CAN_ANON, canAnon);
-        return intent;
-    }
-
     public static Intent toCreateThread(Context context) {
-        return new Intent(context, CreateThreadActivity.class);
+        return new Intent(context, CreateThread2Activity.class);
     }
 
     public static Intent toEditThread(Context context,String tid,String title,String content){

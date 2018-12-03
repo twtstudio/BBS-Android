@@ -31,6 +31,13 @@ interface CreateThreadContract {
         void onGetForumList(List<ForumModel> list);
 
         void onGetForumFailed(String m);
+
+        default void setUpPicker() {
+
+        }
+
+        ;
+
     }
 
     interface Presenter extends BasePresenter {

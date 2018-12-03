@@ -268,17 +268,11 @@ public class ThreadActivity extends BaseActivity implements ThreadContract.View,
             mRefreshing = true;
             mPage = 0;
             mPresenter.getThread(mThreadId, mPage);
-//                mSrlThreadList.setRefreshing(false);
+//                 mSrlThreadList.setRefreshing(false);
         });
-        mCbAnonymousComment.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            mIsAnonymous = isChecked;
-        });
-        mIvSelectImage.setOnClickListener(v -> {
-            ImagePickUtil.commonPickImage(this);
-        });
-        mIvOpenEditor.setOnClickListener(v -> {
-            startActivityForResult(IntentUtil.toEditor(mContext, mTvDynamicHint.getText().toString(), mEtComment.getText().toString(), 1), REQUEST_CODE_EDITOR);
-        });
+        mCbAnonymousComment.setOnCheckedChangeListener((buttonView, isChecked) -> mIsAnonymous = isChecked);
+        mIvSelectImage.setOnClickListener(v -> ImagePickUtil.commonPickImage(this));
+        mIvOpenEditor.setOnClickListener(v -> startActivityForResult(IntentUtil.toEditor(mContext, mTvDynamicHint.getText().toString(), mEtComment.getText().toString(), 1), REQUEST_CODE_EDITOR));
         mTvAtUser.setOnClickListener(v -> startActivityForResult(IntentUtil.toSearch(mContext, MODE_SEARCH_USER), REQUEST_CODE_AT_USER));
         mPresenter.getThread(mThreadId, 0);
         initBottomTools();
@@ -385,9 +379,7 @@ public class ThreadActivity extends BaseActivity implements ThreadContract.View,
             mBoardName = model.getBoard().getName();
             mToolbarTitleBoard.setText(TextUtil.getLinkHtml(mBoardName));
             int finalCanAnonymous = canAnonymous;
-            mToolbarTitleBoard.setOnClickListener(v -> {
-                startActivity(IntentUtil.toThreadList(mContext, mBoardId, mBoardName, finalCanAnonymous));
-            });
+            mToolbarTitleBoard.setOnClickListener(v -> startActivity(IntentUtil.toThreadList(mContext, mBoardId, mBoardName, finalCanAnonymous)));
         }
         setRefreshing(false);
         showAnonymousOrNot(canAnonymous);
