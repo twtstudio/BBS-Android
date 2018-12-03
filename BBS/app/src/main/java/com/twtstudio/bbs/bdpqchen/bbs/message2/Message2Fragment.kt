@@ -4,6 +4,7 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import cn.edu.twt.retrox.recyclerviewdsl.Item
 import cn.edu.twt.retrox.recyclerviewdsl.ItemAdapter
@@ -25,6 +26,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     private lateinit var mPresenter: Message2Presenter
     private lateinit var itemManager: ItemManager
     private var unReadCount = 0
+    private val clearIcon by bindView<ImageView>(R.id.clear_all_unread)
     private val mRecyclerView: RecyclerView by bindView(R.id.rv_message_list)
     private val mTvNoMessage: TextView by bindView(R.id.tv_no_message)
     private val mSrlMessage: SwipeRefreshLayout by bindView(R.id.srl_message)
@@ -42,9 +44,11 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         mRecyclerView.addItemDecoration(RecyclerViewItemDecoration(2))
         mPresenter.getMessageList(0)
         setRefreshing(true)
+        clearIcon.setOnClickListener {
+            mPresenter.doClearUnreadMessage()
+        }
         mSrlMessage.setOnRefreshListener {
             autoClear = false
-            mPresenter.doClearUnreadMessage()
             mPresenter.getMessageList(0)
             mRefreshing = true
             mSrlMessage.isRefreshing = false
@@ -74,6 +78,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     override fun showMessageList(messageList: List<MessageModel>) {
         val temp = mutableListOf<Item>()
         if (mRefreshing) {
+            temp.addAll(messageList.map { MessageItems(context, it) })
             itemManager.refreshAll(temp)
             mRefreshing = false
         }
@@ -90,10 +95,8 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
 
     override fun onCleared() {
         mRefreshing = false
-        if (!autoClear) {
-            autoClear = false
-            SnackBarUtil.normal(this.mActivity, "已刷新并清空未读消息")
-        }
+        SnackBarUtil.normal(this.mActivity, "已清空所有未读消息")
+        mPresenter.getMessageList(0)
     }
 
     override fun onClearFailed(msg: String) {
