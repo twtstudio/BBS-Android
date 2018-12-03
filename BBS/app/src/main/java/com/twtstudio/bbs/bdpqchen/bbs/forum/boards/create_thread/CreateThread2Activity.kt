@@ -32,9 +32,10 @@ class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataCon
     private val contentInput by bindView<TextInputEditText>(R.id.content_input_edit)
     private val editor by bindView<TextView>(R.id.tv_open_editor)
     private val selectImage by bindView<TextView>(R.id.tv_select_image)
-    private val anonymous by bindView<Switch>(R.id.anonymous_switch)
+    private val switch by bindView<Switch>(R.id.anonymous_switch)
     private val itemSelect by bindView<ConstraintLayout>(R.id.item_select_board)
     private val toolbar by bindView<Toolbar>(R.id.toolbar)
+    private val anonTv by bindView<TextView>(R.id.anonymous)
     private lateinit var presenter: CreateThreadContract.Presenter
 
     private val boardTv by bindView<TextView>(R.id.board_name)
@@ -88,6 +89,7 @@ class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataCon
         map = HashMap()
         if (mForumId == 0 && !specifyBoard) {//从主页跳
             presenter.getForumList()//加载全部
+            setAnonymous()
         }
         if (specifyBoard) { //从BA跳
             canAnonymous = intent.getIntExtra(Constants.INTENT_BOARD_CAN_ANON, 0)
@@ -96,7 +98,7 @@ class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataCon
             toolbar.title = "发布帖子 | $title"
             presenter.getBoardList(mSelectedForumId)//加载特定bid的,mSelectedForumId是大id，小id有选择器返回
         }
-        anonymous.setOnCheckedChangeListener { _, b -> isAnonymous = b }
+        switch.setOnCheckedChangeListener { _, b -> isAnonymous = b }
         selectImage.setOnClickListener { ImagePickUtil.commonPickImage(this) }
         editor.setOnClickListener { startActivityForResult(IntentUtil.toEditor(mContext, titleInput.text.toString(), contentInput.text.toString(), 0), Constants.REQUEST_CODE_EDITOR) }
         itemSelect.setOnClickListener { }
@@ -214,7 +216,8 @@ class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataCon
     }
 
     private fun setAnonymous() {
-        anonymous.visibility = if (canAnonymous == 1) View.VISIBLE else View.GONE
+        anonTv.visibility = if (canAnonymous == 1) View.VISIBLE else View.GONE
+        switch.visibility = if (canAnonymous == 1) View.VISIBLE else View.GONE
     }
 
     override fun onPublished() {
@@ -284,7 +287,9 @@ class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataCon
         }
     }
 
-    override fun setSelected(forumId: Int, boardId: Int, boardName: String) {
+    override fun setSelected(forumId: Int, boardId: Int, boardName: String, canAnon: Int) {
+        canAnonymous = canAnon
+        setAnonymous()
         mSelectedBoardId = boardId
         boardTv.text = boardName
     }

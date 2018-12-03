@@ -30,14 +30,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:src="@drawable/publish_title" />
 
             <TextView
                 android:id="@+id/title"
                 app:layout_constraintStart_toEndOf="@id/title_icon"
                 android:text="标题："
+                android:layout_marginBottom="1dp"
                 app:layout_constraintTop_toTopOf="@id/title_icon"
                 app:layout_constraintBottom_toBottomOf="@id/title_icon"
                 android:layout_marginStart="8dp"
@@ -71,18 +72,19 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
                 android:id="@+id/content_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp" />
+                android:layout_width="18dp"
+                android:layout_height="18dp" />
 
             <TextView
+                android:layout_marginBottom="1dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="内容："
                 android:textColor="#4B4B4B"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/title"
-                app:layout_constraintTop_toTopOf="@id/content_icon" />
-
+                app:layout_constraintTop_toTopOf="@id/content_icon"
+                app:layout_constraintBottom_toBottomOf="@id/content_icon" />
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/content_input_edit"

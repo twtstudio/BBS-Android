@@ -6,7 +6,7 @@ interface DataContract {
 
     fun getData(): Map<String, List<BoardsModel.BoardsBean>>
 
-    fun setSelected(forumId: Int, boardId: Int, boardName: String)
+    fun setSelected(forumId: Int, boardId: Int, boardName: String, canAnon: Int)
 
     fun getBoardPos(): Int
 

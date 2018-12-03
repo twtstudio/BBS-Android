@@ -15,6 +15,7 @@ class PickerDialog : DialogFragment() {
     private lateinit var bpicker: BoardPicker
     private lateinit var dataMap: Map<String, List<BoardsModel.BoardsBean>>
 
+    private var canAnon = 0
     private var forumName = "未选择"
     private var forumPos = -1
     private var boardName = "未选择"
@@ -31,7 +32,7 @@ class PickerDialog : DialogFragment() {
             forumPos = getForumPos()
             boardPos = getBoardPos()
             button.setOnClickListener {
-                setSelected(forumPos, boardId, boardName)
+                setSelected(forumPos, boardId, boardName, canAnon)
                 dismiss()
             }
         }
@@ -41,6 +42,7 @@ class PickerDialog : DialogFragment() {
             setOnForumSelectedListener(object : ForumPicker.OnForumItemSelectedListener {
                 override fun onForumSelected(position: Int) {
                     onSelect()
+                    bpicker.setCurrentPosition(0, true)
                     if (dataMap[forumName] != null && dataMap[forumName]!!.isNotEmpty()) {
                         boardName = dataMap[forumName]!![0].name
                     }
@@ -55,6 +57,7 @@ class PickerDialog : DialogFragment() {
                     if (position != 0) {
                         dataMap[forumName]?.apply {
                             boardId = this[position - 1].id
+                            canAnon = this[position - 1].anonymous
                         }
                     }
                     boardPos = getSelectedPos()
