@@ -28,8 +28,8 @@ import kotterknife.bindView
 
 class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataContract {
 
-    private val titleInput by bindView<TextInputEditText>(R.id.title_input_edit)
-    private val contentInput by bindView<TextInputEditText>(R.id.content_input_edit)
+    private val titleInput by bindView<TextInputEditText>(R.id.et_title)
+    private val contentInput by bindView<TextInputEditText>(R.id.et_content)
     private val editor by bindView<TextView>(R.id.tv_open_editor)
     private val selectImage by bindView<TextView>(R.id.tv_select_image)
     private val switch by bindView<Switch>(R.id.anonymous_switch)
@@ -218,6 +218,9 @@ class CreateThread2Activity : BaseActivity(), CreateThreadContract.View, DataCon
     private fun setAnonymous() {
         anonTv.visibility = if (canAnonymous == 1) View.VISIBLE else View.GONE
         switch.visibility = if (canAnonymous == 1) View.VISIBLE else View.GONE
+        if (canAnonymous == 1 && PrefUtil.getIsFirstCreateAnonymous()) {
+
+        }
     }
 
     override fun onPublished() {

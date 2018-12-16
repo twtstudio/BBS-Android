@@ -488,7 +488,7 @@ public class ThreadActivity extends BaseActivity implements ThreadContract.View,
 
     private void initBottomTools() {
         int[] reses = new int[]{R.drawable.ic_star_white_24dp, R.drawable.ic_share_white_24dp, R.drawable.ic_vertical_align_top_white_24dp,
-                R.drawable.ic_clear_white_24dp, R.drawable.ic_import_export_black_24dp, R.drawable.ic_thumb_up_white_24dp, R.drawable.ic_sms_black_24dp};
+                R.drawable.ic_clear_grey_24dp, R.drawable.ic_import_export_black_24dp, R.drawable.ic_thumb_up_white_24dp, R.drawable.ic_sms_black_24dp};
         mBottomTools.addTabs(reses, this);
         mBottomTools.changeIconPadding(1, 2);
         mBottomTools.changeIconPadding(5, 4);

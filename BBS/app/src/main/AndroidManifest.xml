@@ -73,7 +73,6 @@
             android:theme="@style/AppTheme.Intro" />
         <activity android:name=".individual.avatar.UpdateAvatarActivity" />
         <activity android:name=".individual.star.StarActivity" />
-        <activity android:name=".individual.friend.FriendActivity" />
         <activity
             android:name=".individual.letter.LetterActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -94,7 +93,7 @@
         <activity android:name=".main.hot2.HotActivity" />
         <activity android:name=".forum.boards.edit_thread.EditThreadActivity" />
         <activity android:name=".main.event.EventActivity" />
-        <activity android:name=".forum.boards.create_thread.CreateThread2Activity"></activity>
+        <activity android:name=".forum.boards.create_thread.CreateThread2Activity" />
     </application>
 
 </manifest>

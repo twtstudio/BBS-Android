@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableEnd="@drawable/ic_clear_white_24dp"
+                android:drawableEnd="@drawable/ic_clear_grey_24dp"
                 android:backgroundTint="#434343"
                 android:hint="Searching.."
                 android:inputType="text"

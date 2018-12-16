@@ -76,7 +76,7 @@ class Individual2Fragment : SimpleFragment(), Individual2Contract.View {
     }
 
     private fun startItemActivity(index: Int) {
-        val intent: Intent = Intent()
+        val intent = Intent()
         when (index) {
             ACT_IND -> {
                 intent.putExtra("uid", PrefUtil.getAuthUid())
@@ -113,7 +113,7 @@ class Individual2Fragment : SimpleFragment(), Individual2Contract.View {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
-        StatusBarUtil.setTranslucentForImageViewInFragment(this.activity!!, 255, null)
+        StatusBarUtil.setTranslucentForImageViewInFragment(activity, 255, null)
         return rootView
     }
 
@@ -126,7 +126,7 @@ class Individual2Fragment : SimpleFragment(), Individual2Contract.View {
     override fun getInfoFailed(m: String) {
         if (m.contains("token") || m.contains("UID") || m.contains("过期") || m.contains("无效")) {
             SnackBarUtil.error(mActivity, "当前账户的登录信息已过期，请重新登录", true)
-            HandlerUtil.postDelay({ AuthTool.logout(this.activity) }, 3000)
+            HandlerUtil.postDelay({ AuthTool.logout(activity) }, 3000)
         }
     }
 

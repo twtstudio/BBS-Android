@@ -47,6 +47,15 @@ public final class PrefUtil {
     private static final String IS_UPDATE_AVAILABLE = "is_update_available";
     private static final String IS_FILTER_ADVERTISEMENT = "is_filter_advertisement";
     private static final String BOARD_FORUM_MAP = "board_forum_map";
+    private static final String IS_FIRST_CREATE_ANONYMOUS = "is_first_create_anonymous";
+
+    public static boolean getIsFirstCreateAnonymous() {
+        return Hawk.get(IS_FIRST_CREATE_ANONYMOUS, true);
+    }
+
+    public static void setIsFirstCreateAnonymous(boolean a) {
+        Hawk.put(IS_FIRST_CREATE_ANONYMOUS, a);
+    }
 
     public static void setBoardForumMap(Map<String, List<BoardsModel.BoardsBean>> map) {
         Hawk.put(BOARD_FORUM_MAP, map);

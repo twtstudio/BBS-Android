@@ -25,7 +25,6 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
 
     private lateinit var mPresenter: Message2Presenter
     private lateinit var itemManager: ItemManager
-    private var unReadCount = 0
     private val clearIcon by bindView<ImageView>(R.id.clear_all_unread)
     private val mRecyclerView: RecyclerView by bindView(R.id.rv_message_list)
     private val mTvNoMessage: TextView by bindView(R.id.tv_no_message)
@@ -34,7 +33,6 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     private var lastVisibleItemPosition = 0
     private var mPage = 0
     private var mLayoutManager: LinearLayoutManager = LinearLayoutManager(this.mContext, LinearLayoutManager.VERTICAL, false)
-    private var autoClear = true
 
     override fun initFragments() {
         mPresenter = Message2Presenter(this)
@@ -43,15 +41,12 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
         mRecyclerView.layoutManager = mLayoutManager
         mRecyclerView.addItemDecoration(RecyclerViewItemDecoration(2))
         mPresenter.getMessageList(0)
-        setRefreshing(true)
         clearIcon.setOnClickListener {
             mPresenter.doClearUnreadMessage()
         }
         mSrlMessage.setOnRefreshListener {
-            autoClear = false
-            mPresenter.getMessageList(0)
             mRefreshing = true
-            mSrlMessage.isRefreshing = false
+            mPresenter.getMessageList(0)
         }
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
@@ -71,16 +66,19 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
 
     override fun onGetMessageFailed(m: String) {
         SnackBarUtil.error(this.mActivity, m)
-        setRefreshing(false)
+        stopRefresh()
         pageDecrease()
     }
 
     override fun showMessageList(messageList: List<MessageModel>) {
         val temp = mutableListOf<Item>()
-        if (mRefreshing) {
+        if (mRefreshing && mPage == 0) {
             temp.addAll(messageList.map { MessageItems(context, it) })
-            itemManager.refreshAll(temp)
+            itemManager.clear()
+            itemManager.addAll(temp)
             mRefreshing = false
+            stopRefresh()
+            return
         }
         if (messageList.isNotEmpty()) {
             temp.addAll(messageList.map { t -> MessageItems(this.mContext, t) })
@@ -94,16 +92,13 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
     }
 
     override fun onCleared() {
-        mRefreshing = false
+        mRefreshing = true
         SnackBarUtil.normal(this.mActivity, "已清空所有未读消息")
+        mPage = 0
         mPresenter.getMessageList(0)
     }
 
     override fun onClearFailed(msg: String) {
-        if (!autoClear) {
-            autoClear = false
-            SnackBarUtil.error(this.mActivity, "失败$msg")
-        }
         stopRefresh()
     }
 
@@ -123,12 +118,7 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
 
     private fun stopRefresh() {
         mRefreshing = false
-        setRefreshing(false)
-    }
-
-    private fun setRefreshing(b: Boolean) {
-        mSrlMessage.isRefreshing = b
-        mRefreshing = b
+        mSrlMessage.isRefreshing = false
     }
 
     private fun pageDecrease() {

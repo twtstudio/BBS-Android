@@ -3,17 +3,12 @@ package com.twtstudio.bbs.bdpqchen.bbs.forum.boards.edit_thread
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.support.annotation.RequiresApi
 import android.support.design.widget.TextInputEditText
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
-import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.jaeger.library.StatusBarUtil
 import com.twtstudio.bbs.bdpqchen.bbs.R
@@ -84,7 +79,6 @@ class EditThreadActivity : BaseActivity() , EditThreadContract.View {
     override fun onModifySuccess(model: EditModel) {
         SnackBarUtil.normal(this, "发布成功")
         mProgressDialog.dismiss()
-        Thread.sleep(2000)
         finishMe()
     }
 
@@ -129,13 +123,13 @@ class EditThreadActivity : BaseActivity() , EditThreadContract.View {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        this.menuInflater.inflate(R.menu.menu_create_thread,menu)
+        this.menuInflater.inflate(R.menu.menu_edit_thread, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
-            R.id.action_create_thread -> checkInput()
+            R.id.action_edit_thread -> checkInput()
             android.R.id.home -> isDangerExit()
         }
         return false
