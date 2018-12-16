@@ -72,23 +72,15 @@ class Message2Fragment : SimpleFragment(), Message2Contract.View {
 
     override fun showMessageList(messageList: List<MessageModel>) {
         val temp = mutableListOf<Item>()
-        if (mRefreshing && mPage == 0) {
-            temp.addAll(messageList.map { MessageItems(context, it) })
-            itemManager.clear()
-            itemManager.addAll(temp)
-            mRefreshing = false
-            stopRefresh()
-            return
-        }
         if (messageList.isNotEmpty()) {
             temp.addAll(messageList.map { t -> MessageItems(this.mContext, t) })
-            itemManager.addAll(temp)
-        } else {
-            pageDecrease()
-            showNoMessage()
         }
-        mPresenter.getUnreadMessageCount()
-        stopRefresh()
+        if (mRefreshing) {
+            itemManager.refreshAll(temp)
+            stopRefresh()
+        } else {
+            itemManager.addAll(temp)
+        }
     }
 
     override fun onCleared() {
