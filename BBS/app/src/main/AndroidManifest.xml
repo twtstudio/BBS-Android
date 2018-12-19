@@ -36,6 +36,21 @@
 
                 <data android:scheme="opentjubbs" />
             </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <!-- action 和category 必须这样写！！！ -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="bbs.tju.edu.cn" />
+                <data android:pathPrefix="/startApp" />
+                <!-- 注意 "/" 在pathPrefix中是必须的-->
+            </intent-filter>
+
         </activity>
         <activity android:name=".home.HomeActivity" />
         <activity
@@ -53,13 +68,16 @@
             android:launchMode="singleTask">
 
             <!-- 暂时这里不做隐式跳转吧先... -->
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.VIEW"/> -->
-            <!-- <category android:name="android.intent.category.DEFAULT"/> -->
-            <!-- <category android:name="android.intent.category.BROWSABLE"/> -->
-            <!-- <data android:scheme="bbs" -->
-            <!-- android:host="www.bbs.com"/> -->
-            <!-- </intent-filter> -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="bbs"
+                    android:host="www.bbs.com" />
+            </intent-filter>
         </activity>
         <activity android:name=".auth.renew.identify.IdentifyActivity" />
         <activity android:name=".auth.renew.appeal.AppealPassportActivity" />
