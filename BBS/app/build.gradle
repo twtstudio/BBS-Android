@@ -151,7 +151,3 @@ android {
     }
 }
 apply plugin: 'kotlin-android-extensions'
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
