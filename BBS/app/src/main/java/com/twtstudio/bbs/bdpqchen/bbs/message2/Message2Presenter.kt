@@ -34,6 +34,7 @@ class Message2Presenter(view: Message2Contract.View?) : RxPresenter(), Message2C
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith<SimpleObserver<Int>>(observer))
     }
+
     override fun getMessageList(page: Int) {
         val observer: SimpleObserver<List<MessageModel>> = object : SimpleObserver<List<MessageModel>>() {
             override fun _onError(msg: String) {

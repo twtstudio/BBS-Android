@@ -28,7 +28,6 @@ public class MessageModel {
     private int t_create;
 
 
-
     public int getId() {
         return id;
     }

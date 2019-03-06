@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import cn.edu.twt.retrox.recyclerviewdsl.withItems
@@ -34,7 +33,7 @@ class EventActivity : BaseActivity(), EventContract.View {
 
     override fun onGetEventListSuccess(data: EventBean) {
         if (data.data.isEmpty()) {
-            SnackBarUtil.normal(this,"暂时没有活动哦~")
+            SnackBarUtil.normal(this, "暂时没有活动哦~")
         } else {
             recyclerView.withItems(data.data.map { EventItem(this@EventActivity, it) })
         }

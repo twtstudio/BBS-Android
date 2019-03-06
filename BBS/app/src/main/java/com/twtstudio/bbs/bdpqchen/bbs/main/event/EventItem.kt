@@ -11,7 +11,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.R
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil
 import org.jetbrains.anko.layoutInflater
 
-class EventItem(val context: Context, val data:Data) : Item {
+class EventItem(val context: Context, val data: Data) : Item {
     override val controller: ItemController
         get() = Controller
 
@@ -21,20 +21,20 @@ class EventItem(val context: Context, val data:Data) : Item {
             item as EventItem
             holder as ViewHolder
             holder.itemView.setOnClickListener {
-                item.context.startActivity(IntentUtil.toThread(item.context,item.data.id))
+                item.context.startActivity(IntentUtil.toThread(item.context, item.data.id))
             }
             holder.title.text = item.data.title
         }
 
         override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
             val inflater = parent.context.layoutInflater
-            val view  = inflater.inflate(R.layout.item_event,parent,false)
+            val view = inflater.inflate(R.layout.item_event, parent, false)
             val text = view.findViewById<TextView>(R.id.event_text)
-            return ViewHolder(view,text)
+            return ViewHolder(view, text)
         }
 
     }
 
-    class ViewHolder(itemView : View,val title:TextView) : RecyclerView.ViewHolder(itemView)
+    class ViewHolder(itemView: View, val title: TextView) : RecyclerView.ViewHolder(itemView)
 
 }

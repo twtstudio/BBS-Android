@@ -18,6 +18,7 @@ import static com.twtstudio.bbs.bdpqchen.bbs.individual.letter.LetterActivity.RE
 
 class LetterPresenter extends RxPresenter implements LetterContract.Presenter {
     private LetterContract.View mView;
+
     LetterPresenter(LetterContract.View view) {
         mView = view;
     }

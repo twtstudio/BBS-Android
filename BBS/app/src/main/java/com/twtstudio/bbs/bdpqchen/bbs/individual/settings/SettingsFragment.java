@@ -2,15 +2,12 @@ package com.twtstudio.bbs.bdpqchen.bbs.individual.settings;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
 import com.twtstudio.bbs.bdpqchen.bbs.R;
@@ -20,11 +17,9 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.tools.UpdateTool;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.CastUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.DialogUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.HandlerUtil;
-import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.IntentUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.PrefUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.SnackBarUtil;
 
-import static android.support.v7.app.AlertDialog.*;
 import static com.twtstudio.bbs.bdpqchen.bbs.individual.settings.SettingsActivity.IS_SWITCH_NIGHT_MODE_LOCK;
 
 
@@ -89,11 +84,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public boolean onPreferenceChange(Preference preference, Object obj) {
         if (preference.getKey() != null) {
             String key = preference.getKey();
-//            if (key.equals(getString(R.string.key_night_mode))) {
-////                LogUtil.d(obj);
-//                PrefUtil.setIsNightMode(CastUtil.cast2boolean(obj));
-//                startMyself();
-//            } else
             if (key.equals(getString(R.string.key_always_anon))) {
                 PrefUtil.setIsAlwaysAnonymous(CastUtil.cast2boolean(obj));
             } else if (key.equals(getString(R.string.key_simple_board_list))) {
@@ -102,8 +92,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 HandlerUtil.postDelay(() -> ActivityManager.getActivityManager().recreateAllActivity(SettingsActivity.class), 10);
             } else if (key.equals(getString(R.string.key_disabled_image_cache))) {
                 PrefUtil.setDisabledImageCache(CastUtil.cast2boolean(obj));
-            } else if (key.equals(getString(R.string.key_more_app))) {
-
             } else if (key.equals(getString(R.string.key_not_advertisement))){
                 PrefUtil.setIsFilterAdvertisement(CastUtil.cast2boolean(obj));
             }

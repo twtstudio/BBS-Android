@@ -43,21 +43,11 @@ public class SettingsActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
-
-        //本Activity不支持滑动返回，当前使用的滑动返回库不太友好
-/*
-        if (getIntent().getBooleanExtra(IS_SWITCH_NIGHT_MODE_LOCK, false)) {
-            mSlideBackLayout.lock(true);
-        } else {
-            mSlideBackLayout.lock(!PrefUtil.isSlideBackMode());
-        }
-*/
         SettingsFragment fragment = new SettingsFragment();
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(R.id.settings_container, fragment).commit();
-
     }
 
     @Override

@@ -46,6 +46,7 @@ public class LetterActivity extends BaseActivity implements LetterContract.View 
     @BindView(R.id.tv_send)
     TextView mTvSend;
     private LetterPresenter mPresenter;
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_letter;
@@ -82,9 +83,9 @@ public class LetterActivity extends BaseActivity implements LetterContract.View 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
-        mPresenter= new LetterPresenter(this);
+        mPresenter = new LetterPresenter(this);
         Intent intent = getIntent();
         mUid = intent.getIntExtra(UID, 0);
         mToolbar.setTitle(intent.getStringExtra(USERNAME));

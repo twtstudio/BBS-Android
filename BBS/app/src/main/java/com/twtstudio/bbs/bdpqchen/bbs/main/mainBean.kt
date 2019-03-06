@@ -26,60 +26,60 @@ data class AnnounceEntity(
 
 
 data class HotBean(
-		val err: Int,
-		val data: HotData
+        val err: Int,
+        val data: HotData
 )
 
 data class HotData(
-		val latest: List<Latest>,
-		val hot: List<Hot>
+        val latest: List<Latest>,
+        val hot: List<Hot>
 )
 
 data class Hot(
-		val id: Int,
-		val title: String,
-		var author_id: Int,
-		val board_id: Int,
-		val anonymous: Int,
-		val like: Int,
-		var author_name: String,
-		val author_nickname: String,
-		val c_post: Int,
-		val b_top: Int,
-		val b_elite: Int,
-		val b_locked: Int,
-		val visibility: Int,
-		val t_reply: Int,
-		val t_create: Int,
-		val t_modify: Int,
-		val content: String,
-		val board_name: String,
-		val recent: Int
+        val id: Int,
+        val title: String,
+        var author_id: Int,
+        val board_id: Int,
+        val anonymous: Int,
+        val like: Int,
+        var author_name: String,
+        val author_nickname: String,
+        val c_post: Int,
+        val b_top: Int,
+        val b_elite: Int,
+        val b_locked: Int,
+        val visibility: Int,
+        val t_reply: Int,
+        val t_create: Int,
+        val t_modify: Int,
+        val content: String,
+        val board_name: String,
+        val recent: Int
 )
 
 data class Latest(
-		val id: Int,
-		val title: String,
-		val author_id: Int,
-		val board_id: Int,
-		val anonymous: Int,
-		val like: Int,
-		val author_name: String,
-		val author_nickname: String,
-		val c_post: Int,
-		val b_top: Int,
-		val b_elite: Int,
-		val b_locked: Int,
-		val visibility: Int,
-		val t_reply: Int,
-		val t_create: Int,
-		val t_modify: Int,
-		val board_name: String
+        val id: Int,
+        val title: String,
+        val author_id: Int,
+        val board_id: Int,
+        val anonymous: Int,
+        val like: Int,
+        val author_name: String,
+        val author_nickname: String,
+        val c_post: Int,
+        val b_top: Int,
+        val b_elite: Int,
+        val b_locked: Int,
+        val visibility: Int,
+        val t_reply: Int,
+        val t_create: Int,
+        val t_modify: Int,
+        val board_name: String
 )
 
 data class RankBean(
-		val err: Int,
-		val data: RankData
+        val err: Int,
+        val data: RankData
 )
 
 data class RankData(

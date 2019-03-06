@@ -53,31 +53,23 @@ public class StarAdapter extends BaseAdapter<StarModel> {
                     holder.mTvStarName.setText(TextUtil.getTwoNames(model.getAuthor_name(), model.getAuthor_nickname()));
                 }
                 ImageUtil.loadAvatarButAnon(mContext, model.getAuthor_id(), holder.mCivStarAvatar);
-                holder.mTvStarCreateTime.setText("发布于"+StampUtil.getDatetimeByStamp(model.getT_create()));
+                holder.mTvStarCreateTime.setText("发布于" + StampUtil.getDatetimeByStamp(model.getT_create()));
                 holder.mTvStarTitle.setText(model.getTitle());
 
                 if (model.getIn_collection() == 0) {
                     holder.mIvStar.setVisibility(View.VISIBLE);
                     holder.mIvUnStar.setVisibility(View.GONE);
-//                    ImageUtil.loadIconAsBitmap(mContext, R.drawable.ic_star_yellow_24dp, holder.mIvStar);
-                    holder.mIvStar.setOnClickListener(v -> {
-                        mStarPresenter.unStarThread(model.getId(), position);
-                    });
+                    holder.mIvStar.setOnClickListener(v -> mStarPresenter.unStarThread(model.getId(), position));
                 } else {
                     holder.mIvUnStar.setVisibility(View.VISIBLE);
                     holder.mIvStar.setVisibility(View.GONE);
-//                    ImageUtil.loadIconAsBitmap(mContext, R.drawable.ic_star_border_yellow_24dp, holder.mIvUnStar);
                     holder.mIvUnStar.setOnClickListener(v -> {
                         mStarPresenter.starThread(model.getId(), position);
                     });
                 }
-                holder.itemView.setOnClickListener(v -> {
-                    mContext.startActivity(IntentUtil.toThread(mContext, model.getId(), model.getTitle(), 0,
-                            model.getBoard_id(), model.getBoard_name()));
-                });
-                holder.mCivStarAvatar.setOnClickListener(v -> {
-                    mContext.startActivity(IntentUtil.toPeople(mContext, model.getAuthor_id()));
-                });
+                holder.itemView.setOnClickListener(v -> mContext.startActivity(IntentUtil.toThread(mContext, model.getId(), model.getTitle(), 0,
+                        model.getBoard_id(), model.getBoard_name())));
+                holder.mCivStarAvatar.setOnClickListener(v -> mContext.startActivity(IntentUtil.toPeople(mContext, model.getAuthor_id())));
             }
         }
     }

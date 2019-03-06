@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,8 +42,6 @@ public class HomeActivity extends BaseActivity implements InfoContract {
     ImageView tabIndividual;
     @BindView(R.id.home_bar_create_thread)
     ImageView createThread;
-    @BindView(R.id.fl_main_container)
-    FrameLayout mFlMainContainer;
     private SupportFragment[] mFragments = new SupportFragment[4];
     private static final int FIRST = 0;
     private static final int SECOND = 1;

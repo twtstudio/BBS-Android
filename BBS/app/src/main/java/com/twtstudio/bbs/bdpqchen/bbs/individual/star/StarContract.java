@@ -10,18 +10,26 @@ import java.util.List;
  */
 
 interface StarContract {
-    interface View extends BaseView{
+    interface View extends BaseView {
         void onGetStarList(List<StarModel> list);
+
         void onGetStarFailed(String m);
+
         void
         onStar(int position);
+
         void onStarFailed(String m);
+
         void onUnStar(int position);
+
         void onUnStarFailed(String s);
     }
-    interface Presenter extends BasePresenter{
+
+    interface Presenter extends BasePresenter {
         void getStarList();
+
         void starThread(int tid, int position);
+
         void unStarThread(int tid, int position);
     }
 }

@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.jaeger.library.StatusBarUtil;
@@ -88,7 +87,7 @@ public class UpdateInfoActivity extends BaseActivity implements UpdateInfoContra
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
         mPresenter = new UpdateInfoPresenter(this);
         Activity activity = this;
@@ -121,7 +120,7 @@ public class UpdateInfoActivity extends BaseActivity implements UpdateInfoContra
             case R.id.rl_signature_update_info:
                 showInputDialog("更改签名", "最大汉字长度为100", 100, (materialDialog, charSequence) -> {
                     String s = charSequence.toString();
-                    if (s.length() > 100){
+                    if (s.length() > 100) {
                         SnackBarUtil.error(this, "签名的最大汉字长度为100");
                         return;
                     }

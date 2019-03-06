@@ -16,7 +16,7 @@ import com.twtstudio.bbs.bdpqchen.bbs.commons.utils.SnackBarUtil
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel
 
 
-class PersonActivity : BaseActivity() , PersonContract.View {
+class PersonActivity : BaseActivity(), PersonContract.View {
 
     override fun getLayoutResourceId() = R.layout.activity_person
 
@@ -26,8 +26,8 @@ class PersonActivity : BaseActivity() , PersonContract.View {
 
     private val mPresenter = PersonPresenter(this)
     private lateinit var recyclerView: RecyclerView
-    private var uid : Int = 0
-    private val itemList : MutableList<Item> = mutableListOf()
+    private var uid: Int = 0
+    private val itemList: MutableList<Item> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,37 +40,26 @@ class PersonActivity : BaseActivity() , PersonContract.View {
             decorView.systemUiVisibility = option
             window.statusBarColor = Color.TRANSPARENT
         }
-//        hideBottomUIMenu()
         val actionBar = supportActionBar
         actionBar?.hide()
-        uid = intent.getIntExtra("uid",0)
+        uid = intent.getIntExtra("uid", 0)
         mPresenter.getPersonInfo(uid)
         recyclerView = findViewById(R.id.rv_person) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onPersonInfoSuccess(person: PeopleModel) {
-        itemList.add(PersonHeaderItem(person,this@PersonActivity,uid))
+        itemList.add(PersonHeaderItem(person, this@PersonActivity, uid))
         itemList.add(SingleTextItem("最近动态"))
-        recyclerView.withItems (itemList)
+        recyclerView.withItems(itemList)
     }
 
     override fun onLoadFailed(info: String) {
-        SnackBarUtil.error(this@PersonActivity,"加载失败，请检查网络设置")
+        SnackBarUtil.error(this@PersonActivity, "加载失败，请检查网络设置")
     }
 
     override fun onThreadInfoSuccess(thread: List<ThreadModel.ThreadBean>) {
         itemList.addAll(thread.map { t -> IndThreadItem(t, this@PersonActivity, uid) })
         recyclerView.withItems(itemList)
     }
-
-    override fun addFooter() {
-//        if(itemList.size == 11){
-//            itemList.add(SingleTextItem("没有更多帖子了（只展示最近十条）"))
-//        } else {
-//            itemList.add(SingleTextItem("没有更多帖子了"))
-//        }
-//        recyclerView.withItems(itemList)
-    }
-
 }

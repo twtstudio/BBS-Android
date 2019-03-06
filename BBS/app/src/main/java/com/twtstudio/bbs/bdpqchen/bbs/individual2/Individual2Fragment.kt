@@ -27,8 +27,8 @@ import me.yokeyword.fragmentation.SupportFragment
  * Created by linjiaxin on 2018/7/12.
  */
 class Individual2Fragment : SimpleFragment(), Individual2Contract.View {
-    override fun getPerMainFragmentLayoutId(): Int = R.layout.fragment_individual2
 
+    override fun getPerMainFragmentLayoutId(): Int = R.layout.fragment_individual2
 
     private lateinit var xPresenter: Individual2Presenter
     private val mInfo: ConstraintLayout by bindView(R.id.ind_info)
@@ -71,8 +71,6 @@ class Individual2Fragment : SimpleFragment(), Individual2Contract.View {
         mCollections.setOnClickListener { startItemActivity(ACT_STAR) }
         mPublish.setOnClickListener { startItemActivity(ACT_PUBLISH) }
         mSettings.setOnClickListener { startItemActivity(ACT_SETS) }
-
-
     }
 
     private fun startItemActivity(index: Int) {

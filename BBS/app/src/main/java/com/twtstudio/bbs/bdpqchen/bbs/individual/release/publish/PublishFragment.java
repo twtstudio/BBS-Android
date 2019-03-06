@@ -38,6 +38,7 @@ public class PublishFragment extends BaseFragment implements PublishContract.Vie
     private boolean mRefreshing = false;
     private MaterialDialog mDialog;
     private PublishPresenter mPresenter;
+
     @Override
     protected int getFragmentLayoutId() {
         return R.layout.fragment_release_publish;

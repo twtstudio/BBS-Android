@@ -16,6 +16,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PublishPresenter extends RxPresenter implements PublishContract.Presenter {
     private PublishContract.View mView;
+
     PublishPresenter(PublishContract.View view) {
         mView = view;
     }

@@ -13,7 +13,6 @@ class PersonPresenter(view: PersonContract.View?) : RxPresenter(), PersonContrac
     private var mView : PersonContract.View? = view
 
     override fun getPersonInfo(uid: Int) {
-
         val connectObservable = sHttpClient.getUserInfo(uid)
                 .map(ResponseTransformer())
                 .publish()
@@ -45,7 +44,6 @@ class PersonPresenter(view: PersonContract.View?) : RxPresenter(), PersonContrac
             }
 
             override fun onComplete() {
-                super.onComplete()
                 mView?.onThreadInfoSuccess(list)
             }
         }

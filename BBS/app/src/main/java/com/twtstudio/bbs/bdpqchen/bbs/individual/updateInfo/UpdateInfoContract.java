@@ -14,15 +14,19 @@ import java.io.File;
 
 interface UpdateInfoContract {
 
-    interface View extends BaseView{
+    interface View extends BaseView {
         void updateAvatarFailed(String msg);
+
         void updateAvatarSuccess(BaseModel baseModel);
+
         void updateInfoFailed(String m);
+
         void updateInfoSuccess();
     }
 
-    interface Presenter extends BasePresenter{
+    interface Presenter extends BasePresenter {
         void doUpdateAvatar(File file);
+
         void doUpdateInfo(Bundle bundle, int t);
     }
 

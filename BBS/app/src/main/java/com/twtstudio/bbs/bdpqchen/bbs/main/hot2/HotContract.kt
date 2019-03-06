@@ -10,6 +10,7 @@ interface HotContract {
 
     interface View {
         fun onGetHotListSuccess(hotList: List<Hot>)
+
         fun onGetHotListFailed(msg: String)
     }
 

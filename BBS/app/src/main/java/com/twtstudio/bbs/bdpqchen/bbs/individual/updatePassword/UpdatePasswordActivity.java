@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
 import com.twtstudio.bbs.bdpqchen.bbs.R;
@@ -41,6 +40,7 @@ public class UpdatePasswordActivity extends BaseActivity implements UpdatePasswo
     ProgressButton mCpbIdentify;
 
     private UpdatePasswordPresenter mPresenter;
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_update_password;
@@ -61,7 +61,7 @@ public class UpdatePasswordActivity extends BaseActivity implements UpdatePasswo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = new UpdatePasswordPresenter(this);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
     }
 
@@ -70,20 +70,20 @@ public class UpdatePasswordActivity extends BaseActivity implements UpdatePasswo
         String confirmPass = String.valueOf(mEtAgain.getText());
         String oldPass = String.valueOf(mEtOld.getText());
         String err = "输入不正确";
-        if (newPass.length() < 1){
+        if (newPass.length() < 1) {
             mEtNew.setError(err);
             return;
         }
-        if (confirmPass.length() < 1){
+        if (confirmPass.length() < 1) {
             mEtAgain.setError(err);
             return;
         }
-        if (oldPass.length() < 1){
+        if (oldPass.length() < 1) {
             mEtOld.setError(err);
             return;
         }
-        if (!newPass.equals(confirmPass)){
-            SnackBarUtil.error(this,"两次密码不一致");
+        if (!newPass.equals(confirmPass)) {
+            SnackBarUtil.error(this, "两次密码不一致");
             return;
         }
         mCpbIdentify.start();

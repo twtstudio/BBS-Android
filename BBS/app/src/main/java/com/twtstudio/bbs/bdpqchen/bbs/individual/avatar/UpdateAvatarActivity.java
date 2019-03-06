@@ -53,7 +53,7 @@ public class UpdateAvatarActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ImageUtil.refreshMyAvatar(this, resultView);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
         mBtnFinish.setOnClickListener(v -> {
             if (mImagePath != null) {

@@ -25,18 +25,18 @@ import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.ThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread.model.UploadImageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.forum.boards.thread_list.ThreadListModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.letter.LetterModel;
-import com.twtstudio.bbs.bdpqchen.bbs.main.event.EventBean;
-import com.twtstudio.bbs.bdpqchen.bbs.main.mainV3.BannerBean;
-import com.twtstudio.bbs.bdpqchen.bbs.message2.MessageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.model.IndividualInfoModel;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.release.publish.PublishEntity;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.release.reply.ReplyEntity;
 import com.twtstudio.bbs.bdpqchen.bbs.individual.star.StarModel;
 import com.twtstudio.bbs.bdpqchen.bbs.main.AnnounceBean;
 import com.twtstudio.bbs.bdpqchen.bbs.main.HotBean;
-import com.twtstudio.bbs.bdpqchen.bbs.main.RankBean;
 import com.twtstudio.bbs.bdpqchen.bbs.main.HotEntity;
 import com.twtstudio.bbs.bdpqchen.bbs.main.LatestEntity;
+import com.twtstudio.bbs.bdpqchen.bbs.main.RankBean;
+import com.twtstudio.bbs.bdpqchen.bbs.main.event.EventBean;
+import com.twtstudio.bbs.bdpqchen.bbs.main.mainV3.BannerBean;
+import com.twtstudio.bbs.bdpqchen.bbs.message2.MessageModel;
 import com.twtstudio.bbs.bdpqchen.bbs.person.PeopleModel;
 import com.twtstudio.bbs.bdpqchen.bbs.search.model.SearchThreadModel;
 import com.twtstudio.bbs.bdpqchen.bbs.search.model.SearchUserModel;
@@ -98,14 +98,13 @@ public class RxDoHttpClient {
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .build();
 
-//        GsonBuilder gson = new GsonBuilder().registerTypeHierarchyAdapter(BaseResponse.class, new ErrorJsonAdapter());
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)
-//                .addConverterFactory(GsonConverterFactory.create(gson.create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(DirtyJsonConverter.create())
                 .build();
+
         mApi = retrofit.create(BaseApi.class);
     }
 

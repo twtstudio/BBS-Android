@@ -45,7 +45,7 @@ public class ReleaseActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
         ReleaseAdapter adapter = new ReleaseAdapter(getSupportFragmentManager());
         mVpRelease.setAdapter(adapter);

@@ -19,11 +19,11 @@ class ForumPicker @JvmOverloads constructor(context: Context, attrs: AttributeSe
         }
     }
 
-    public fun getSelectedItem() = selectedItem
+    fun getSelectedItem() = selectedItem
 
-    public fun getSelectedPos() = selectedPos
+    fun getSelectedPos() = selectedPos
 
-    public fun setOnForumSelectedListener(listener: OnForumItemSelectedListener) {
+    fun setOnForumSelectedListener(listener: OnForumItemSelectedListener) {
         mForumItemSelectedListener = listener
     }
 

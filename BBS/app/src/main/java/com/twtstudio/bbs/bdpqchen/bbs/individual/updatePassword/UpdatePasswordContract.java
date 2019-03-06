@@ -12,8 +12,8 @@ interface UpdatePasswordContract {
 
     interface View extends BaseView {
         void onUpdated(BaseModel model);
-        void onUpdateFailed(String errorMsg);
 
+        void onUpdateFailed(String errorMsg);
     }
 
     interface Presenter extends BasePresenter {

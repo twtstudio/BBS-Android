@@ -23,7 +23,7 @@ import com.youth.banner.Transformer
 import org.jetbrains.anko.layoutInflater
 import org.jetbrains.annotations.NotNull
 
-class MainV3Threadheader(val context: Context,val imgids: List<Int>,val threadIds: List<Int>) : Item {
+class MainV3Threadheader(val context: Context, val imgids: List<Int>, val threadIds: List<Int>) : Item {
 
 
     companion object Controller : ItemController {
@@ -38,7 +38,7 @@ class MainV3Threadheader(val context: Context,val imgids: List<Int>,val threadId
                 setBannerAnimation(Transformer.DepthPage)
                 setDelayTime(2000)
                 setIndicatorGravity(BannerConfig.CENTER)
-                setOnBannerListener { position -> item.context.startActivity(IntentUtil.toThread(item.context,item.threadIds[position])) }
+                setOnBannerListener { position -> item.context.startActivity(IntentUtil.toThread(item.context, item.threadIds[position])) }
                 start()
             }
             holder.noticeIv.setOnClickListener {

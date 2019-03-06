@@ -38,7 +38,5 @@ class ForumPresenter2(val mView: ForumContract2.View) : RxPresenter(), ForumCont
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(observer)
         )
-
     }
-
 }

@@ -55,7 +55,7 @@ public class StarActivity extends BaseActivity implements StarContract.View {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setColor(this, Color.WHITE,0);
+        StatusBarUtil.setColor(this, Color.WHITE, 0);
         enableLightStatusBarMode(true);
         mPresenter = new StarPresenter(this);
         mAdapter = new StarAdapter(this, mPresenter);

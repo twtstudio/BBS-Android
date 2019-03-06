@@ -10,12 +10,11 @@ import com.twtstudio.bbs.bdpqchen.bbs.individual.model.IndividualInfoModel
 interface Individual2Contract {
     interface View : BaseView {
         fun gotInfo(model: IndividualInfoModel)
-        fun getInfoFailed(m: String)
 
+        fun getInfoFailed(m: String)
     }
 
     interface Presenter : BasePresenter {
         fun initIndividualInfo()
-
     }
 }

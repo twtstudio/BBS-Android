@@ -11,15 +11,21 @@ import java.util.List;
  */
 
 interface LetterContract {
-    interface View extends BaseView{
+    interface View extends BaseView {
         void onGetLetterList(List<LetterModel> modelList);
+
         void onRefreshList(List<LetterModel> modelList);
+
         void onGetLetterFailed(String m);
+
         void onSend(BaseModel model);
+
         void onSendFailed(String m);
     }
-    interface Presenter extends BasePresenter{
+
+    interface Presenter extends BasePresenter {
         void getLetterList(int uid, int page, int mode);
+
         void sendLetter(int to_uid, String content);
     }
 }

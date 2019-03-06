@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.twtstudio.bbs.bdpqchen.bbs.R;
@@ -49,7 +48,7 @@ public class PublishAdapter extends BaseAdapter<PublishEntity> {
                 holder.mTvDatetime.setText(TextUtil.getPostCountAndTime(entity.getC_post(), entity.getT_create()));
                 holder.mTvDelete.setOnClickListener(v -> mListener.onDeleteClick(holder.getAdapterPosition()));
                 holder.mIvEdit.setOnClickListener(v -> {
-                    mContext.startActivity(IntentUtil.toEditThread(mContext,entity.getId()+"",entity.getTitle(),entity.getContent()));
+                    mContext.startActivity(IntentUtil.toEditThread(mContext, entity.getId() + "", entity.getTitle(), entity.getContent()));
                 });
                 holder.itemView.setOnClickListener(v -> {
                     mContext.startActivity(IntentUtil.toThread(mContext, entity.getId(), entity.getTitle(), 0));

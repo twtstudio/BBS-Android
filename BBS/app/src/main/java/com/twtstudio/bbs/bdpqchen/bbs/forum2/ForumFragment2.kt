@@ -20,7 +20,6 @@ class ForumFragment2 : SimpleFragment(), ForumContract2.View {
     override fun getPerMainFragmentLayoutId(): Int = R.layout.fragment_forum_2
 
     override fun initFragments() {
-//        mActivity.enableLightStatusBarMode(true)
         mPresenter = ForumPresenter2(this)
         mPresenter.getBoardList()
         recyclerView.layoutManager = linearLayoutManager

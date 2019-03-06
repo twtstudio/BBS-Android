@@ -1,7 +1,6 @@
 package com.twtstudio.bbs.bdpqchen.bbs.main.event
 
 import com.twtstudio.bbs.bdpqchen.bbs.commons.presenter.RxPresenter
-import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.RxDoHttpClientTest
 import com.twtstudio.bbs.bdpqchen.bbs.commons.rx.SimpleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
