@@ -1,11 +1,8 @@
-# 求实BBS-Android
+# 求实BBS-Android 开发白皮书
 
-## 应用介绍
+#### 应用介绍
   天津大学求实BBS社区客户端
 
-
-
-## 项目结构
 
 #### 关于模块
 > 采用类模块化-功能分包结构，所有功能模块统一依赖于commons，包括网络层，基础UI层，本地数据库，统一使用commons所提供的实现。添加模块时，可直接创建模块文件夹，继承/实现commons提供的基类/接口
@@ -28,7 +25,7 @@
 
 - Activity : 提供对应的Contract接口；Presenter类应继承RxPresenter并实现Contract接口；可见的Activity应列入对应的manifests，继承BaseActivity，实现Contract.View接口 例如：
 ```kotlin
-PersonContract.kt
+//PersonContract.kt
 interface PersonContract {
 
     interface Presenter : BasePresenter{
@@ -42,7 +39,7 @@ interface PersonContract {
     }
 }
 
-PersonPresenter.kt
+//PersonPresenter.kt
 class PersonPresenter(view: PersonContract.View?) : RxPresenter(), PersonContract.Presenter {
 
     private var mView : PersonContract.View? = view
@@ -99,7 +96,7 @@ class PersonPresenter(view: PersonContract.View?) : RxPresenter(), PersonContrac
 
 }
 
-PersonActivity.kt
+//PersonActivity.kt
 class PersonActivity : BaseActivity() , PersonContract.View {
 
     //在BaseActivity的onCreate()方法中会执行setContentView(getLayoutResourceId());
