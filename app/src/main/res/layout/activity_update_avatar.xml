@@ -1,0 +1,47 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBg"
+    android:orientation="vertical"
+    >
+
+    <include
+        layout="@layout/common_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
+        android:background="@color/cardview_shadow_end_color"
+        >
+
+        <ImageView
+            android:id="@+id/result_image"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar_default_left"
+            />
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/shape_intro_bg"
+        android:clickable="false"
+        android:text="上传"
+        android:textColor="@color/colorPrimaryCopy"
+        />
+
+</LinearLayout>

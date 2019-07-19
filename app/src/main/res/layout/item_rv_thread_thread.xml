@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorMainBgLight"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_thread_content"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_avatar_thread"
+            android:layout_width="@dimen/size_avatar_normal"
+            android:layout_height="@dimen/size_avatar_normal"
+            android:src="@drawable/avatar_default_left"
+            android:transitionName="@string/share_avatar"
+            tools:targetApi="lollipop"
+            />
+
+        <TextView
+            android:id="@+id/tv_username_thread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/colorTvBlackMainTint"
+            android:textSize="14sp"
+            tools:text="中文名"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textColor="@color/colorTvBlackMain"
+        android:textSize="20sp"
+        tools:text="挑剔大家发多少"
+        />
+
+    <com.twtstudio.bbs.bdpqchen.bbs.htmltextview.PostHtmlTextView
+        android:id="@+id/htv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textColor="@color/colorTvBlackMainTint"
+        android:textIsSelectable="true"
+        android:textSize="16sp"
+        tools:text="挑剔大家发多少aflsjlfsj大家来决定是否了解爱上了飞机来打扫房间2017年05月22日23:45:052017年05月22日23:45:07"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/tv_datetime_thread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textSize="12sp"
+            tools:text="2017-11-11 "
+            />
+
+        <!--<ImageView
+            android:id="@+id/iv_thread_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/selector_foreground_settings"
+            android:paddingBottom="4dp"
+            android:paddingStart="4dp"
+            android:paddingTop="4dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/ic_thumb_up_white_24dp"
+            android:tint="@color/colorTintIconBlack"
+            />
+
+        <TextView
+            android:id="@+id/tv_thread_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="16dp"
+            android:gravity="start"
+            android:textColor="@color/colorTintIconBlack"
+            tools:text="10"
+            />
+
+        <ImageView
+            android:id="@+id/iv_thread_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/selector_foreground_settings"
+            android:padding="4dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/ic_sms_black_24dp"
+            android:tint="@color/colorTintIconBlack"
+            />
+-->
+    </LinearLayout>
+</LinearLayout>

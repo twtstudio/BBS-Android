@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#2385df</color>
+    <color name="colorPrimaryDark">#1c6bb4</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="nightModeDim">#000000</color>
+
+    <color name="colorPrimaryCopy">#2385df</color>
+    <color name="colorPrimaryCopyLight">#0085ff</color>
+    <color name="colorPrimaryDarkCopy">#1c6bb4</color>
+
+    <color name="colorMainBgLight">#fefefe</color>
+    <color name="colorMainBg">#EEEEEE</color>
+    <color name="colorMainBgTrans">#22dddddd</color>
+    <color name="colorBottomBg">#ffffff</color>
+
+    <color name="colorSnackNormalBg">#fcfc37</color>
+
+    <color name="colorBottomSelectedBgHome">#ad3768fc</color>
+    <color name="colorBottomSelectedBgForum">#ad3d5cb6</color>
+    <color name="colorBottomSelectedBgPersonal">#ad354679</color>
+    <color name="colorCheckBoxText">#86dad5</color>
+    <color name="colorPrimaryLight">#1bbfe4</color>
+    <color name="colorHonorTextView">#f49979</color>
+    <color name="colorMainText">#FEFBF4</color>
+    <color name="colorTvBlackMain">#302c2c</color>
+    <color name="colorTvBlackMainTint">#0d0c0c</color>
+    <color name="colorIndividualTagNum">#FF0000</color>
+    <color name="colorTintIconBlack">#9E9E9E</color>
+    <color name="colorThreadContentBg">#FFffffff</color>
+    <color name="colorMainBgLightHeight">#ffffff</color>
+    <color name="colorForumBg">#88ffffff</color>
+    <color name="colorInfoBg">#d60707</color>
+    <color name="colorDividerLine">#e2e2e2</color>
+    <color name="colorBottomToolsIconTint">#666666</color>
+    <color name="colorBottomToolsBg">#e7e7e7</color>
+
+    <!--<color name="colorTintIconBlack">#3F51B5</color>-->
+    <color name="colorThumbUp">#2cc197</color>
+    <color name="colorThumbDown">#666666</color>
+    <color name="reminderBgNotice">#FFf89042</color>
+    <color name="reminderBgError">#FFf44336</color>
+    <color name="reminderBgNormal">#FF62cbd6</color>
+
+
+</resources>

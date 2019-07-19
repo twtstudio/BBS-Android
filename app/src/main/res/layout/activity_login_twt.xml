@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:orientation="horizontal"
+           android:background="#6ec0de"
+
+                                             xmlns:aandroid="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            aandroid:layout_constraintTop_toTopOf="parent"
+            aandroid:layout_constraintBottom_toTopOf="@id/linearLayout2" android:id="@+id/constraintLayout2">
+
+        <ImageView android:layout_width="143dp" android:layout_height="68dp"
+                   android:src="@drawable/ic_bbs_twt_qiushi"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginBottom="8dp"
+        />
+        <TextView
+                android:id="@+id/textView2_twt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:text="结 识 天 大 人       ·       倡 议 天 大 事"
+                android:textColor="#ebf6fa"
+                aandroid:layout_constraintStart_toStartOf="parent"
+                aandroid:layout_constraintTop_toTopOf="parent"
+                aandroid:layout_constraintBottom_toBottomOf="parent" aandroid:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/linearLayout2_twt"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/loginshape"
+            android:gravity="center"
+            android:orientation="horizontal"
+            aandroid:layout_constraintBottom_toTopOf="@+id/linearLayout_twt"
+            aandroid:layout_constraintEnd_toEndOf="parent"
+            aandroid:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="start|center_vertical"
+                android:src="@drawable/ic_perm_identity_black_24dp"
+                android:tint="#56B4E6" />
+
+        <EditText
+                android:background="@drawable/edit_shape"
+                android:id="@+id/et_account_twt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="账户"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="false"
+                android:textColor="@drawable/twt_text_selector"
+                android:textColorHint="#f0f8fb" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/linearLayout_twt"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/cornerlinear_normal"
+            android:gravity="center"
+            android:orientation="horizontal"
+            aandroid:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            aandroid:layout_constraintEnd_toEndOf="parent"
+            aandroid:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_lock_outline_black_24dp"
+                android:tint="#56B4E6" />
+
+        <EditText
+                android:textColor="@drawable/twt_text_selector"
+                android:background="@drawable/edit_shape"
+                android:id="@+id/et_password_twt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="密码"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColorHint="#f0f8fb" />
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            aandroid:layout_constraintBottom_toTopOf="@+id/login_btn">
+
+        <TextView
+
+                android:id="@+id/tv_to_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_toStartOf="@+id/tx_forgot_password"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="注册"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                aandroid:layout_constraintBottom_toBottomOf="parent"
+                aandroid:layout_constraintStart_toStartOf="parent"
+                aandroid:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tx_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="忘记密码?"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                aandroid:layout_constraintBottom_toBottomOf="parent"
+                aandroid:layout_constraintStart_toEndOf="@+id/tv_to_register"
+                aandroid:layout_constraintTop_toTopOf="parent" />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bbs_background_white"
+                android:text="求实"
+                android:textSize="15dp"
+                android:textColor="#56B4E6"
+                android:gravity="center_horizontal"
+                aandroid:layout_constraintEnd_toStartOf="@+id/bbs_login" android:layout_marginBottom="8dp"
+                aandroid:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+                aandroid:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+
+                android:focusable="true"
+                android:clickable="true"
+                android:id="@+id/bbs_login"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"
+                android:text="bbs登陆"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                aandroid:layout_constraintBottom_toBottomOf="parent"
+                aandroid:layout_constraintEnd_toEndOf="parent"
+                aandroid:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+            android:id="@+id/login_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/twt_loginbutton"
+
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            aandroid:layout_constraintTop_toBottomOf="@+id/linearLayout2_twt"
+            aandroid:layout_constraintBottom_toTopOf="@+id/twt"
+            aandroid:layout_constraintEnd_toEndOf="parent"
+            aandroid:layout_constraintHorizontal_bias="0.0"
+            aandroid:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="20sp"
+                android:layout_height="29dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_twt_cloud"
+                aandroid:layout_constraintBottom_toBottomOf="parent"
+                aandroid:layout_constraintEnd_toStartOf="@id/bbs_login"
+                aandroid:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="登录"
+                android:textColor="#6DB3D4" />
+    </LinearLayout>
+
+    <TextView
+
+            android:id="@+id/twt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="70dp"
+            android:text="天 外 天 工 作 室 出 品"
+            android:textColor="#FFFFFF"
+            aandroid:layout_constraintBottom_toBottomOf="parent"
+            aandroid:layout_constraintEnd_toEndOf="parent"
+            aandroid:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

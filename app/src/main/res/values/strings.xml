@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">求实BBS</string>
+    <string name="collection_no_collection">你还没有收藏的帖子哦~</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="key_night_mode">key_switch_night_mode</string>
+    <string name="key_slide_back">key_slide_back</string>
+    <string name="key_always_anon">key_always_anon</string>
+    <string name="key_habit_hand">key_habit_hand</string>
+    <string name="key_logout">key_logout</string>
+    <string name="key_not_advertisement">key_not_advertisement</string>
+    <string name="current_version">当前版本 : 2.0.1</string>
+    <string name="version_name">2.0.1</string>
+    <string name="version_code">21</string>
+    <string name="key_simple_board_list">key_simple_board_list</string>
+    <string name="key_check_update">key_check_update</string>
+    <string name="key_auto_clear_unread">key_auto_clear_unread</string>
+    <string name="key_simple_forum">key_simple_forum</string>
+    <string name="key_disabled_image_cache">key_disabled_image_cache</string>
+    <string name="key_feedback">key_feedback</string>
+    <string name="key_more_app">key_more_app</string>
+    <string name="default_signature">这个人很有趣,什么也不写..</string>
+    <string name="hint_md_editor">在这里编辑内容\n向左滑动可切换预览视图\n点击 + 展开标记符号列表</string>
+    <string name="share_avatar">share_avatar</string>
+    <string name="share_big_photo">share_big_photo</string>
+    <string name="title">天津大学求实BBS注册管理条例</string>
+    <string name="timeformat">2017年12月13号 16：58</string>
+    <string name="content">一、在注册天津大学求是BBS账号和发表帖子之前，请仔细阅读本管理协议。参与天津大学BBS的一切活动，均视为已收悉并接受了本管理协议所规定的所有条款</string>
+    <string name="username">Whyso</string>
+    <string name="user_level">开国元老</string>
+    <string name="week_point">周积分</string>
+    <string name="mark_all_read">标记所有已读</string>
+    <string name="string_title">我竟然在55教草丛发kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk了......</string>
+
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><!--最新栏目的新闻-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout="@layout/preference_item_normal">
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title=" 基本设置">
+
+        <!--<SwitchPreference-->
+            <!--android:defaultValue="false"-->
+            <!--android:key="@string/key_night_mode"-->
+            <!--android:layout="@layout/preference_item_normal"-->
+            <!--android:summary="拒绝亮瞎眼式应用"-->
+            <!--android:title="夜间模式"-->
+            <!--/>-->
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_always_anon"
+            android:layout="@layout/preference_item_normal"
+            android:summary="可匿名回复帖子自动勾选匿名按钮"
+            android:title="得匿名且匿名"
+            />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_disabled_image_cache"
+            android:layout="@layout/preference_item_normal"
+            android:summary="开启会使用更多的流量"
+            android:title="不缓存图片"
+            />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_not_advertisement"
+            android:layout="@layout/preference_item_normal"
+            android:title="过滤广告"
+            android:summary="开启会过滤掉招聘信息等广告"
+            />
+        <!-- <ListPreference
+             android:key="@string/key_habit_hand"
+             android:layout="@layout/preference_item_normal"
+             android:title="惯用手模式"
+             android:summary="%s"
+             android:defaultValue="0"
+             android:entries="@array/pref_list_habit_hand"
+             android:entryValues="@array/pref_list_habit_hand_entries"
+             />-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title=" 账户">
+        <Preference
+            android:key="@string/key_logout"
+            android:layout="@layout/preference_item_button"
+            android:summary="登出"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title=" 关于应用">
+
+        <Preference
+            android:key="@string/key_check_update"
+            android:layout="@layout/preference_item_normal"
+            android:summary="@string/current_version"
+            android:title="检查更新"
+            />
+
+        <Preference
+            android:key="@string/key_feedback"
+            android:layout="@layout/preference_item_normal"
+            android:title="反馈加群"
+            />
+<!--
+
+        <Preference
+            android:key="@string/key_more_app"
+            android:layout="@layout/preference_item_normal"
+            android:title="更多产品"
+            />
+-->
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

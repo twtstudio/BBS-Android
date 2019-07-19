@@ -1,0 +1,90 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+<!--
+        <item name="android:windowAllowEnterTransitionOverlap" tools:targetApi="lollipop">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap" tools:targetApi="lollipop">true</item>
+        <item name="android:windowEnterTransition" tools:targetApi="lollipop">@android:transition/slide_bottom</item>
+-->
+        <item name="colorControlActivated">@color/colorPrimaryCopy</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+
+    </style>
+
+    <style name="AppTheme.Intro" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.EditText.Register" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.EditText.Comment" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="AppTheme.Splash" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_logo_bg</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="tvTextSizeNormal">
+        <item name="android:textSize">18sp</item>
+        <item name="android:color">@color/colorMainText</item>
+    </style>
+
+    <style name="tvTextSizeVeryLittle">
+        <item name="android:textSize">10sp</item>
+        <item name="android:color">@color/colorMainText</item>
+    </style>
+
+    <style name="tvSupportNightMode">
+        <item name="android:textColor">@color/colorTvBlackMain</item>
+    </style>
+
+    <style name="NightAlertDialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TextAboveWhiteImage" parent="@android:style/TextAppearance">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">6</item>
+        <item name="android:shadowDy">6</item>
+        <item name="android:shadowRadius">6</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="AppTheme.ShareElement" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowContentTransitions"
+              tools:targetApi="lollipop">true</item>
+    </style>
+
+    <declare-styleable name="ExpandableLayout">
+        <attr name="el_duration" format="integer" />
+        <attr name="el_expanded" format="boolean" />
+        <attr name="layout_expandable" format="boolean" />
+    </declare-styleable>
+
+    <style name="DatePickerBottomDialog" parent="android:Theme.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="DatePickerDialogAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/com_ycuwq_datepicker_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/com_ycuwq_datepicker_dialog_out</item>
+    </style>
+
+</resources>

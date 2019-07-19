@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+
+    <tab
+        icon="@drawable/icon_bb_main"
+        id="@+id/bottom_bar_tab_main"
+        title="首页"
+        />
+
+    <tab
+        icon="@drawable/icon_bb_forum"
+        id="@+id/bottom_bar_tab_forum"
+        title="论坛"
+        />
+
+    <tab
+        icon="@drawable/icon_bb_forum"
+        id="@+id/bottom_bar_tab_create_thread"
+        title="快速发帖"
+        />
+
+    <tab
+        icon="@drawable/icon_bb_message"
+        id="@+id/bottom_bar_tab_message"
+        title="消息"
+        />
+
+    <tab
+        icon="@drawable/icon_bb_individual"
+        id="@+id/bottom_bar_tab_individual"
+        title="个人"
+        />
+
+</tabs>
