@@ -108,6 +108,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
         mEtPassword.setOnFocusChangeListener((v,hasFocus)->{
             if (hasFocus){linearLayout.setBackground(drawable);}
             else{ linearLayout.setBackground(ndrawable);}
+
         });
     }
 
